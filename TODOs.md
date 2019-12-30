@@ -19,3 +19,10 @@
 2.  Add `controllers` and `models` directories
 
 [:white_check_mark:] Make start.js script
+
+[ ] Setup sass directory for .scss files
+
+1.  Create `sass` directory
+2.  Use `node-sass-middleware`
+3.  Configure `sassMiddleware`
+4.  Link the output `style.css` in `layout.pug`
