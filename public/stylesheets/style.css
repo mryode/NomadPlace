@@ -1,2 +1,22 @@
 html {
+  padding: 0;
+  margin: 0;
   font-size: 10px; }
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #efefef; }
+  body:before {
+    content: "";
+    display: block;
+    background: linear-gradient(90deg, #f5dea3 0%, #42e6a4 20%, #02a8a8 60%, #018383 85%, #f5dea3 95%);
+    height: 10px;
+    width: 100%; }
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto; }
+  @media all and (max-width: 900px) {
+    .inner {
+      padding: 2rem; } }

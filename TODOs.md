@@ -29,8 +29,20 @@
 
 ## Step 2 - Layout Setup
 
-[ ] Pick a logo
+[:white_check_mark:] Pick a logo
 
-[ ] Modify `layout.pug`
+[Logo source]()
 
-[ ] Pick color palettes
+[:white_check_mark:] Modify `layout.pug`
+
+4 Sections created:
+
+1.  Header
+2.  Messages
+3.  Content
+4.  Scripts
+
+[:white_check_mark:] Pick color palettes
+
+1.  [Palette #1](https://colorhunt.co/palette/166114)
+2.  [Palette #2](https://www.schemecolor.com/aladdin-genie-blue-color-scheme.php)

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./start.js --ignore public/"
+    "dev": "nodemon ./start.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
