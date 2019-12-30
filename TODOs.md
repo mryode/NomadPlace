@@ -46,3 +46,8 @@
 
 1.  [Palette #1](https://colorhunt.co/palette/166114)
 2.  [Palette #2](https://www.schemecolor.com/aladdin-genie-blue-color-scheme.php)
+
+## Step 3 - Create header
+
+[ ] Create a navbar
+[ ] Style the navbar
