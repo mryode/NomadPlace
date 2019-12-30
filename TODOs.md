@@ -8,5 +8,5 @@
 
 ### Step 1
 
-[ ] Setup project structure - **MVC**
+[ ] Setup project structure - **MVC**  
 [ ] Make start.js script
