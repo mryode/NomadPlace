@@ -6,7 +6,7 @@
 
 [ ] Use WebPack
 
-### Step 1
+### Step 1 - Environment Setup
 
 [:white_check_mark:] Setting ESLint and Prettier
 
@@ -26,3 +26,11 @@
 2.  Use `node-sass-middleware`
 3.  Configure `sassMiddleware`
 4.  Link the output `style.css` in `layout.pug`
+
+## Step 2 - Layout Setup
+
+[ ] Pick a logo
+
+[ ] Modify `layout.pug`
+
+[ ] Pick color palettes
