@@ -20,7 +20,7 @@
 
 [:white_check_mark:] Make start.js script
 
-[ ] Setup sass directory for .scss files
+[:white_check_mark:] Setup sass directory for .scss files
 
 1.  Create `sass` directory
 2.  Use `node-sass-middleware`
