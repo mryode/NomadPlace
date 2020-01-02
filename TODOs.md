@@ -49,5 +49,20 @@
 
 ## Step 3 - Create header
 
-[ ] Create a navbar
-[ ] Style the navbar
+[:white_check_mark:] Create and style navbar
+
+Icons:
+a. [Places]
+b. [Tags](https://www.flaticon.com/free-icon/hashtag_1827975?term=hashtag&page=1&position=5)
+c. [Top](https://www.flaticon.com/free-icon/top-three_2282603?term=top&page=1&position=16)
+d. [Add](https://www.flaticon.com/free-icon/plus-sign-in-circle_16909?term=add&page=1&position=17)
+e. [Map]
+
+Main colors:
+a. \#efefef
+b. \#303030
+c. \#f5dea3
+d. \#1d80c3
+e. \#42e6a4
+f. \#02a8a8
+g. \#018383

@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+const helpers = require('./helpers/helpers');
 
 const indexRouter = require('./routes/index');
 
@@ -29,6 +30,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+
+// Pass variables to the templates and requests
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.currentPath = req.path;
+
+  next(); // After adding - continue...
+});
 
 app.use('/', indexRouter);
 
