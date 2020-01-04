@@ -21,7 +21,7 @@ const placeSchema = new mongoose.Schema({
 
 placeSchema.pre('save', function(next) {
   // Not using arrow function because I'm using `this`
-  if (!this.name.isModified()) {
+  if (!this.isModified('name')) {
     return next();
   }
 

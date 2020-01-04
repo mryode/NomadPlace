@@ -2,9 +2,12 @@
     "cSpell.words": [
         "CSRF",
         "TODOs",
+        "mimetype",
         "nomadplace",
         "paren",
         "parens",
-        "readonly"
+        "readonly",
+        "resave",
+        "uploader"
     ]
 }

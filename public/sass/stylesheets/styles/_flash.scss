@@ -1,0 +1,96 @@
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.flash__messages {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+}
+.flash {
+  display: flex;
+  text-align: left;
+  padding: 3rem 0;
+  margin: 2rem;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+  animation: slideIn forwards 0.1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1);
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 100%;
+  }
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem 0 2rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  &__content {
+    flex: 1;
+    color: #878787;
+  }
+  &__close {
+    cursor: pointer;
+    background: none;
+    border: 0;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem;
+  }
+  &--success {
+    border: 1px solid $success;
+    &:before {
+      background-color: $success;
+    }
+    svg {
+      fill: $success;
+    }
+    .flash__close:hover {
+      color: $success;
+    }
+  }
+  &--info {
+    border: 1px solid $info;
+    &:before {
+      background-color: $info;
+    }
+    svg {
+      fill: $info;
+    }
+    .flash__close:hover {
+      color: $info;
+    }
+  }
+  &--error {
+    border: 1px solid $error;
+    &:before {
+      background-color: $error;
+    }
+    svg {
+      fill: $error;
+    }
+    .flash__close:hover {
+      color: $error;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}

@@ -37,6 +37,17 @@ html
             li.nav__item: a.nav__link(href="/login", class=(currentPath.startsWith('/login') ? 'nav__item--active' : '')) Log In
 
     block messages
+      if flashes
+        .flash__messages
+          - const categories = Object.keys(locals.flashes)
+          each category in categories
+            each message in flashes[category]
+              .flash(class=`flash--${category}`)
+                svg.flash__icon
+                  != h.icon(category)
+                p.flash__content
+                  != message
+                button.flash__close(onClick="this.parentElement.remove()") &times;
 
     .content
       block content

@@ -445,11 +445,9 @@ p {
 .card {
   background: white;
   border: 0 none;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
   padding: 5rem;
-  box-sizing: border-box;
-  /*stacking fieldsets above each other*/
-  position: relative; }
+  box-sizing: border-box; }
 
 html {
   padding: 0;
@@ -494,7 +492,7 @@ body {
     color: white;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
-    padding: 1.2rem 2rem 1rem 2rem;
+    padding: 1rem;
     display: block;
     display: flex;
     flex-direction: column;
@@ -623,7 +621,7 @@ body {
 
 .tag {
   display: block;
-  margin-right: 1rem; }
+  margin: 1rem; }
   .tag__choice {
     display: flex;
     justify-content: center;
@@ -642,3 +640,77 @@ body {
       .tag__choice input:checked + label {
         background: #42e6a4;
         color: #303030; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10px); }
+  50% {
+    transform: translateX(10px); }
+  100% {
+    transform: translateX(0px); } }
+
+.flash__messages {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10; }
+
+.flash {
+  display: flex;
+  text-align: left;
+  padding: 3rem 0;
+  margin: 2rem;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+  animation: slideIn forwards 0.1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
+  .flash:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 100%; }
+  .flash__icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem 0 2rem;
+    border-radius: 50%;
+    display: inline-block; }
+  .flash__content {
+    flex: 1;
+    color: #878787; }
+  .flash__close {
+    cursor: pointer;
+    background: none;
+    border: 0;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem; }
+  .flash--success {
+    border: 1px solid #64e291; }
+    .flash--success:before {
+      background-color: #64e291; }
+    .flash--success svg {
+      fill: #64e291; }
+    .flash--success .flash__close:hover {
+      color: #64e291; }
+  .flash--info {
+    border: 1px solid #1d72f3; }
+    .flash--info:before {
+      background-color: #1d72f3; }
+    .flash--info svg {
+      fill: #1d72f3; }
+    .flash--info .flash__close:hover {
+      color: #1d72f3; }
+  .flash--error {
+    border: 1px solid #eb7070; }
+    .flash--error:before {
+      background-color: #eb7070; }
+    .flash--error svg {
+      fill: #eb7070; }
+    .flash--error .flash__close:hover {
+      color: #eb7070; }
+  .flash p {
+    margin: 0; }
