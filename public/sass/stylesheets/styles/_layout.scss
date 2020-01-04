@@ -9,3 +9,11 @@ body {
   margin: 0;
   background: $white;
 }
+
+.inner {
+  max-width: $bp1;
+  margin: 0 auto;
+  @media all and (max-width: $bp1) {
+    padding: 2rem;
+  }
+}

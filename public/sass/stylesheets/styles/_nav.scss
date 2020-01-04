@@ -5,6 +5,8 @@
   padding: 0;
   justify-content: space-between;
   background: $black;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
   &__section {
     display: flex;
     &--search {
@@ -38,7 +40,7 @@
     transition: transform 0.2s;
 
     svg {
-      width: 40px;
+      width: 30px;
       transition: all 0.2s;
       fill: white;
       margin-bottom: 1rem;
@@ -55,20 +57,20 @@
         }
       }
       svg {
-        width: 200px;
+        width: 100px;
         margin: 0;
       }
     }
   }
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: $bp1) {
   .nav {
     &__link {
       padding-left: 1rem;
       padding-right: 1rem;
       svg {
-        width: 30px;
+        width: 20px;
       }
       &--logo {
         svg {
@@ -79,7 +81,7 @@
   }
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: $bp2) {
   .nav {
     flex-wrap: wrap;
     &__section {

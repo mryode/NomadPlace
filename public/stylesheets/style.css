@@ -1,8 +1,11 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap");
 html {
   box-sizing: border-box; }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit; }
 
 img {
@@ -18,7 +21,7 @@ img {
 /* Document
    ========================================================================== */
 html {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   /* 1 */
   line-height: 1.15;
   /* 2 */
@@ -227,8 +230,6 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif;
-  /* 1 */
   font-size: 100%;
   /* 1 */
   line-height: 1.15;
@@ -412,12 +413,6 @@ template {
 [hidden] {
   display: none; }
 
-@font-face {
-  font-family: "panama";
-  src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
 html {
   font-size: 10px; }
 
@@ -432,7 +427,7 @@ h4,
 h5,
 h6 {
   font-size: 5rem;
-  font-family: "Panama";
+  font-family: "Oswald", sans-serif;
   font-weight: 600;
   letter-spacing: -1px; }
 
@@ -447,6 +442,15 @@ p {
   line-height: 2;
   font-size: 1.6rem; }
 
+.card {
+  background: white;
+  border: 0 none;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 5rem;
+  box-sizing: border-box;
+  /*stacking fieldsets above each other*/
+  position: relative; }
+
 html {
   padding: 0;
   margin: 0;
@@ -457,13 +461,22 @@ body {
   margin: 0;
   background: #efefef; }
 
+.inner {
+  max-width: 1200px;
+  margin: 0 auto; }
+  @media all and (max-width: 1200px) {
+    .inner {
+      padding: 2rem; } }
+
 .nav {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: space-between;
-  background: #303030; }
+  background: #303030;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem; }
   .nav__section {
     display: flex; }
     .nav__section--search {
@@ -489,7 +502,7 @@ body {
     justify-content: center;
     transition: transform 0.2s; }
     .nav__link svg {
-      width: 40px;
+      width: 30px;
       transition: all 0.2s;
       fill: white;
       margin-bottom: 1rem; }
@@ -498,7 +511,7 @@ body {
     .nav__link--logo:hover svg {
       transform: none; }
     .nav__link--logo svg {
-      width: 200px;
+      width: 100px;
       margin: 0; }
 
 @media all and (max-width: 1200px) {
@@ -506,7 +519,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem; }
     .nav__link svg {
-      width: 30px; }
+      width: 20px; }
     .nav__link--logo svg {
       width: 100px; } }
 
@@ -546,7 +559,9 @@ body {
 .search {
   position: relative;
   width: 100%;
-  display: flex; }
+  display: flex;
+  border-right: solid rgba(255, 255, 255, 0.1);
+  font-family: "Oswald", sans-serif; }
   .search__results {
     background: white;
     position: absolute;
@@ -556,7 +571,8 @@ body {
     z-index: 5;
     left: 0; }
   .search__input {
-    font-size: 30px;
+    font-family: inherit;
+    font-size: 25px;
     background: none;
     color: white;
     outline: 0;
@@ -568,3 +584,61 @@ body {
     border-bottom: 1px solid #ececec; }
     .search__result--active {
       background: #f1f1f1; }
+
+.form {
+  margin-bottom: 5rem; }
+  .form input,
+  .form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 13px; }
+  .form__title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2c3e50;
+    margin-bottom: 10px; }
+  .form__button {
+    background: #42e6a4;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0; }
+    .form__button:hover, .form__button:focus {
+      box-shadow: 0 0 0 2px white, 0 0 0 3px #018383; }
+
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; }
+
+.tag {
+  display: block;
+  margin-right: 1rem; }
+  .tag__choice {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .tag__choice input {
+      width: auto;
+      right: -1.5rem;
+      margin-right: -1rem;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0; }
+      .tag__choice input + label {
+        background: #303030;
+        color: #efefef;
+        padding: 1rem 1rem 1rem 4rem; }
+      .tag__choice input:checked + label {
+        background: #42e6a4;
+        color: #303030; }

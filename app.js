@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
-const helpers = require('./helpers/helpers');
+const helpers = require('./utils/helpers');
 
 const indexRouter = require('./routes/index');
 
@@ -16,6 +16,7 @@ app.use(logger('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Compile the .scss file into one unified .css file
 app.use(
   sassMiddleware({
     src: path.join(__dirname, 'public/sass/'),

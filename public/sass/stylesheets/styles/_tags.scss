@@ -1,0 +1,35 @@
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: block;
+  margin-right: 1rem;
+  &__choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      width: auto;
+      right: -1.5rem;
+      margin-right: -1rem;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0;
+      & + label {
+        background: $black;
+        color: $white;
+        padding: 1rem 1rem 1rem 4rem;
+      }
+      &:checked + label {
+        background: $light_green;
+        color: $black;
+      }
+    }
+  }
+}

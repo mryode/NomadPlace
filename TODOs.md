@@ -5,6 +5,7 @@
 ### Global TODOs
 
 [ ] Use WebPack
+[ ] Prevent CSRF/XSS/DOS
 
 ### Step 1 - Environment Setup
 
@@ -66,3 +67,13 @@ d. \#1d80c3
 e. \#42e6a4
 f. \#02a8a8
 g. \#018383
+
+## Step 4 - Create Home and Places pages
+
+[ ] Create Place model
+
+[ ] Create route
+
+[ ] Create `placeController` (implement endpoint/middleware/API)
+
+[ ] Create `places.pug` for rendering the places

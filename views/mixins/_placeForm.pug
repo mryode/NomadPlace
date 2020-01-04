@@ -1,0 +1,31 @@
+mixin placeForm(place = {})
+  form.card.form(action=`/add/${place._id || ''}`, method="POST")
+
+    label(for="name") Name
+    input(type="text" name="name", value=(place.name))
+
+    label(for="description") Description
+    textarea(name="description" rows="3") #{place.description}
+
+    label(for="photo") Photo
+    input(type="file" name="photo" id="photo")
+
+    label(for="address") Address
+    input(type="text" id="address" name="location[address]", value=(place.location && place.location.address))
+
+    label(for="lng") Address LNG
+    input(type="text" id="lng" name="location[coordinates][0]", value=(place.location && place.location.coordinates[0]))
+
+    label(for="lat") Address LAT
+    input(type="text" id="lat" name="location[coordinates][1]", value=(place.location && place.location.coordinates[1]))
+
+    - const choices = h.tags
+    - const tags = place.tags || []
+
+      ul.tags
+        each choice in choices
+          .tag.tag__choice
+            input(type="checkbox" name="tags", id=choice, value=choice, checked=(tags.includes(choice)))
+            label(for=choice) #{choice}
+
+    input.form__button(type="submit" value="Save →")

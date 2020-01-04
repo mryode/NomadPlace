@@ -2,6 +2,8 @@
   position: relative;
   width: 100%;
   display: flex;
+  border-right: solid rgba(255, 255, 255, 0.1);
+  font-family: "Oswald", sans-serif;
   &__results {
     background: white;
     position: absolute;
@@ -12,7 +14,8 @@
     left: 0;
   }
   &__input {
-    font-size: 30px;
+    font-family: inherit;
+    font-size: 25px;
     background: none;
     color: white;
     outline: 0;
