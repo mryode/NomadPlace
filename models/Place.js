@@ -13,6 +13,14 @@ const placeSchema = new mongoose.Schema({
   slug: {
     type: String,
   },
+  tags: [
+    {
+      type: String,
+    },
+  ],
+  photo: {
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now,

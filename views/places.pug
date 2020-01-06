@@ -1,4 +1,10 @@
 extends layout
 
+include mixins/_placeCard
+
 block content
   .inner
+    h2 #{title}
+  .places
+    each place in places
+      +placeCard(place)

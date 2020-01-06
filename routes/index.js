@@ -20,4 +20,7 @@ router.post(
   catchErrors(placeController.savePlaceInDB)
 );
 
+// Display places
+router.get('/places', catchErrors(placeController.getPlaces));
+
 module.exports = router;

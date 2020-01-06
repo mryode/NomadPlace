@@ -68,12 +68,24 @@ e. \#42e6a4
 f. \#02a8a8
 g. \#018383
 
-## Step 4 - Create Home and Places pages
+## Step 4 - Create Home, Add Place and Places pages
 
-[ ] Create Place model
+[:white_check_mark:] Create Place model
 
-[ ] Create route
+1. name
+2. description
+3. slug
+4. tags
+5. photo
+6. created
 
-[ ] Create `placeController` (implement endpoint/middleware/API)
+[:white_check_mark:] Create routes
 
-[ ] Create `places.pug` for rendering the places
+1. GET / - Home page
+2. GET /add - Add place
+3. POST /add - Submit addition
+4. GET /places - Display places
+
+[:white_check_mark:] Implement controller at `placeController`
+
+[:white_check_mark:] Create `.pug` files to render

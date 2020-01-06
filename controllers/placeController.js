@@ -8,7 +8,7 @@ const Place = mongoose.model('Place');
  *  ENDPOINTS
  */
 exports.homePage = (req, res) => {
-  res.render('place', { title: 'Home' });
+  res.render('index', { title: 'Home' });
 };
 
 exports.addPlace = (req, res) => {
@@ -17,10 +17,16 @@ exports.addPlace = (req, res) => {
 
 exports.savePlaceInDB = async (req, res) => {
   const place = await Place.create(req.body);
+  // TODO Reflective XSS warning sanitize place name
   req.flash('success', `${place.name} was created!`);
 
   // TODO redirect to the place page
   res.redirect('/');
+};
+
+exports.getPlaces = async (req, res) => {
+  const places = await Place.find();
+  res.render('places', { title: 'Places', places });
 };
 
 /*
@@ -50,7 +56,7 @@ exports.resizeImage = async (req, res, next) => {
   req.body.photo = `${uuid.v4()}.${imageExtension}`;
 
   const image = await jimp.read(req.file.buffer);
-  await image.resize(800, jimp.AUTO);
+  await image.resize(400, 400);
   await image.write(`./public/uploads/${req.body.photo}`);
 
   next();

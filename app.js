@@ -69,4 +69,13 @@ app.use(errorHandler.notFound);
 // Check for any validation errors when submitting a form
 app.use(errorHandler.flashValidationErrors);
 
+// Otherwise this was a really bad error we didn't expect! Shoot eh
+if (app.get('env') === 'development') {
+  /* Development Error Handler - Prints stack trace */
+  app.use(errorHandler.developmentErrors);
+}
+
+// production error handler
+app.use(errorHandler.productionErrors);
+
 module.exports = app;

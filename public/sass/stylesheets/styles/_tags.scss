@@ -1,35 +1,100 @@
+// .tags {
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+//   display: flex;
+//   margin-bottom: 2rem;
+//   flex-wrap: wrap;
+// }
+
+// .tag {
+//   display: block;
+//   margin: 1rem;
+//   &__choice {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     input {
+//       display: none;
+//       width: auto;
+//       right: -1.5rem;
+//       margin-right: -1rem;
+//       position: relative;
+//       z-index: 2;
+//       margin-bottom: 0;
+//       & + label {
+//         background: $black;
+//         color: $white;
+//         padding: 1rem;
+//       }
+//       &:checked + label {
+//         background: $light_green;
+//         color: $black;
+//       }
+//     }
+//   }
+// }
 .tags {
-  margin: 0;
-  padding: 0;
   list-style: none;
-  display: flex;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+
+  li {
+    float: left;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      & + .tag {
+        background: $light_green;
+      }
+      & + .tag:after {
+        border-left-color: $light_green;
+      }
+    }
+  }
 }
 
 .tag {
-  display: block;
-  margin: 1rem;
-  &__choice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    input {
-      width: auto;
-      right: -1.5rem;
-      margin-right: -1rem;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 0;
-      & + label {
-        background: $black;
-        color: $white;
-        padding: 1rem 1rem 1rem 4rem;
-      }
-      &:checked + label {
-        background: $light_green;
-        color: $black;
-      }
-    }
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+
+  &:before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: "";
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+  }
+  &:after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #eee;
+    border-top: 13px solid transparent;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &:hover {
+    background-color: $light_green;
+    color: white;
+  }
+  &:hover::after {
+    border-left-color: $light_green;
   }
 }
