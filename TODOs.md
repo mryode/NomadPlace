@@ -89,3 +89,13 @@ g. \#018383
 [:white_check_mark:] Implement controller at `placeController`
 
 [:white_check_mark:] Create `.pug` files to render
+
+## Step 5 - Users register, login and forgot password
+
+[ ] Create User model
+
+[ ] Create routes
+
+[ ] Implement controller at `placeController` and `userController`
+
+[ ] Create `.pug` files to render
