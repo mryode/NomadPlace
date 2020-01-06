@@ -4,22 +4,27 @@ const slug = require('slug');
 const placeSchema = new mongoose.Schema({
   name: {
     type: String,
+    trim: true,
     required: 'You must supply place name.',
   },
   description: {
     type: String,
+    trim: true,
     required: 'You must supply place description.',
   },
   slug: {
     type: String,
+    trim: true,
   },
   tags: [
     {
       type: String,
+      trim: true,
     },
   ],
   photo: {
     type: String,
+    trim: true,
   },
   created: {
     type: Date,
