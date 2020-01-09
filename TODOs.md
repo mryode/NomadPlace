@@ -94,6 +94,13 @@ g. \#018383
 
 [ ] Create User model
 
+[ ] Configure Passport.js
+
+1. Choose strategy - passport-local-mongoose
+2. Add the passport plugin to your mongoose model
+3. Configure passport-local (serialize and deserialize User)
+4. Setup passport middleware in your express app
+
 [ ] Create routes
 
 [ ] Implement controller at `placeController` and `userController`

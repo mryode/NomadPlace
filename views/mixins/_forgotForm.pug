@@ -1,0 +1,9 @@
+mixin forgotForm(details = {})
+  .forgot
+    h2 Forgot your password?
+
+    form.card.form(action='/forgot' method='POST')
+      label(for="email") Email Address
+      input(type="email" name="email")
+
+      input.form__button(type="submit" value="RESET PASSWORD →")

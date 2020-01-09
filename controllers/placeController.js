@@ -8,6 +8,7 @@ const Place = mongoose.model('Place');
  *  ENDPOINTS
  */
 exports.homePage = (req, res) => {
+  console.log('req.user', req.user);
   res.render('index', { title: 'Home' });
 };
 

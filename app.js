@@ -8,6 +8,7 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
 
 const helpers = require('./utils/helpers');
 const errorHandler = require('./handlers/errorHandler');
@@ -50,6 +51,12 @@ app.use(
   })
 );
 
+// Passport configuration
+require('./handlers/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash());
 
 // Pass variables to the templates and requests
@@ -57,6 +64,7 @@ app.use((req, res, next) => {
   res.locals.h = helpers;
   res.locals.flashes = req.flash();
   res.locals.currentPath = req.path;
+  res.locals.user = req.user || null;
 
   next(); // After adding - continue...
 });
