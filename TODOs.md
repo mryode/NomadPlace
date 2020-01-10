@@ -151,3 +151,20 @@ Used `nodemailer`
 - `reset.pug` - display reset form
 - `email/*` - email message
 - Modified `_placeCard.pug` - add edit action on place that the logged in user created.
+
+## Step 6 - Place info and edit pages
+
+[ ] Create routes
+
+1. Place page given place id
+2. Edit place given place id
+
+[ ] Implement controllers
+
+1. Enable place address autocomplete in add/edit place pages
+2. Create static map according to the place's location
+
+[ ] Create .pug files
+
+1. `place.pug` - render static map and place details
+2. `editPlace.pug` - already done in add place section.
