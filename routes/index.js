@@ -28,6 +28,7 @@ router.get('/places', catchErrors(placeController.getPlaces));
 // Users
 // TODO validate forms
 // TODO check if logged in/out before doing things (no logout if not logged in)
+// Session endpoints
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 router.get('/register', userController.registerForm);
@@ -37,5 +38,14 @@ router.post(
   authController.login
 );
 router.get('/logout', authController.logout);
+// Account endpoints
+router.get('/account', userController.accountPage);
+router.post('/account', catchErrors(userController.updateAccount));
+router.post('/account/forgot', catchErrors(authController.forgot));
+router.get('/account/reset/:token', authController.reset);
+router.post(
+  '/account/reset/:token',
+  catchErrors(authController.updateNewPassword)
+);
 
 module.exports = router;

@@ -8,7 +8,6 @@ const Place = mongoose.model('Place');
  *  ENDPOINTS
  */
 exports.homePage = (req, res) => {
-  console.log('req.user', req.user);
   res.render('index', { title: 'Home' });
 };
 
@@ -17,6 +16,8 @@ exports.addPlace = (req, res) => {
 };
 
 exports.savePlaceInDB = async (req, res) => {
+  req.body.author = req.user._id;
+
   const place = await Place.create(req.body);
   // TODO Reflective XSS warning sanitize place name
   req.flash('success', `${place.name} was created!`);

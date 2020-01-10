@@ -6,6 +6,8 @@
 
 [ ] Use WebPack
 [ ] Prevent CSRF/XSS/DOS
+[ ] Sanitize PORM submissions
+[ ] Create access control (isLoggedIn / attach permissions code to user)
 
 ### Step 1 - Environment Setup
 
@@ -92,17 +94,60 @@ g. \#018383
 
 ## Step 5 - Users register, login and forgot password
 
-[ ] Create User model
+[:white_check_mark:] Create User model
 
-[ ] Configure Passport.js
+1. email
+2. name
+3. resetPasswordToken
+4. resetPasswordExpires
+5. created
+6. hash - added using passport
+7. salt - added using passport
+
+[:white_check_mark:] Configure Passport.js
 
 1. Choose strategy - passport-local-mongoose
 2. Add the passport plugin to your mongoose model
 3. Configure passport-local (serialize and deserialize User)
 4. Setup passport middleware in your express app
 
-[ ] Create routes
+[:white_check_mark:] Create routes
 
-[ ] Implement controller at `placeController` and `userController`
+Authentication:
 
-[ ] Create `.pug` files to render
+1. **/login**
+   -- GET display login form
+   -- POST submit login
+2. **/register**
+   -- GET display register form
+   -- POST submit registert
+3. **/logout**
+   -- GET logout user
+
+Account:
+
+1. **/account**
+   -- GET display account page
+   -- POST submit changes
+2. **/account/forgot**
+   -- POST submit email to reset password
+3. **/account/reset/:token**
+   -- GET display reset password form
+   -- POST submit form - reset password and login
+
+[:white_check_mark:] Implement controller at `placeController`, `userController` and `authController`
+
+- `userController` - account information and operations
+- `authController` - login, logout and reset password
+
+[:white_check_mark:] Send mail
+
+Used `nodemailer`
+
+[:white_check_mark:] Create `.pug` files to render
+
+- `account.pug` - display account info for update
+- `_forgotForm.pug` - display forgot form
+- `reset.pug` - display reset form
+- `email/*` - email message
+- Modified `_placeCard.pug` - add edit action on place that the logged in user created.

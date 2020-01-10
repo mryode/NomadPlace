@@ -26,6 +26,11 @@ const placeSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply an Author.',
+  },
   created: {
     type: Date,
     default: Date.now,

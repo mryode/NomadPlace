@@ -24,6 +24,10 @@ const userSchema = new Schema({
   resetPasswordExpires: {
     type: Date,
   },
+  created: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 userSchema.virtual('gravatar').get(function() {

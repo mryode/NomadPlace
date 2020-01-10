@@ -14,6 +14,26 @@ exports.registerForm = (req, res) => {
   res.render('register', { title: 'Register' });
 };
 
+exports.accountPage = (req, res) => {
+  res.render('account', { title: 'Edit your account 🧾' });
+};
+
+exports.updateAccount = async (req, res) => {
+  const updates = {
+    email: req.body.email,
+    name: req.body.name,
+  };
+
+  await User.findByIdAndUpdate(
+    req.user._id,
+    { $set: updates },
+    { new: true, runValidators: true, context: 'query' }
+  );
+
+  req.flash('success', 'User updated successfully!');
+  res.redirect('back');
+};
+
 /*
  *  MIDDLEWARE
  */

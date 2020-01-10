@@ -16,14 +16,15 @@ mixin placeCard(place={})
       a(href=`/place/${place.slug}`) Read more!
 
     //- actions
-      .place__actions
-        .place__action--edit
-          button
+    .place__actions
+      if user && place.author.equals(user._id)
+        .place__action.place__action--edit
+          a(href=`/places/${place._id}/edit`)
             != h.icon('pencil')
-        .place__action--like
+        //- .place__action--like
           button
             != h.icon('heart')
-        .place__action--review
+        //- .place__action--review
           button
             != h.icon('review')
 
