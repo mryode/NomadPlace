@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .single
+    .single__header
+      img.single__image(src=`/uploads/${place.photo || 'place.jpg'}` alt=`${place.name} image`)
+      h2.single__title.fit #{place.name}
+
+  .single__details.inner
+    img.single__map(src=h.staticMap(place.location.coordinates))
+    p.single__location #{place.location.address}
+    p #{place.description}
+
+    if place.tags
+      ul.tags
+        each tag in place.tags
+          li.tag
+            a.tag__link(href=`/tags/${tag}`)
+              span.tag__text #{tag}

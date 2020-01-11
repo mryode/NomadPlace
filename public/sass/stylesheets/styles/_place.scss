@@ -21,9 +21,14 @@
   box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
   text-align: center;
   transition: all 0.4s;
-  background: url("/uploads/place.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+
+  img.place__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+  }
 
   a {
     color: #fff;

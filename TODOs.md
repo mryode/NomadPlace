@@ -4,9 +4,12 @@
 
 ### Global TODOs
 
-[ ] Use WebPack
+[:construction:] Use WebPack
+
+- Bundled .js files
+
 [ ] Prevent CSRF/XSS/DOS
-[ ] Sanitize PORM submissions
+[ ] Sanitize FORM submissions
 [ ] Create access control (isLoggedIn / attach permissions code to user)
 
 ### Step 1 - Environment Setup
@@ -120,7 +123,7 @@ Authentication:
    -- POST submit login
 2. **/register**
    -- GET display register form
-   -- POST submit registert
+   -- POST submit register
 3. **/logout**
    -- GET logout user
 
@@ -154,17 +157,30 @@ Used `nodemailer`
 
 ## Step 6 - Place info and edit pages
 
-[ ] Create routes
+[:white_check_mark:] Create routes
 
 1. Place page given place id
-2. Edit place given place id
+   -- GET **/place/:slug**
 
-[ ] Implement controllers
+2. Edit place given place id
+   -- GET **/places/:id/edit**
+   -- POST **/add/:id** - reuse route
+
+[:white_check_mark:] Register to API services
+
+1. [Algolia Place.js](www.algolia.com) - Places auto complete
+2. [Mapbox](https://www.mapbox.com/maps/) - Map support (static and dynamic)
+
+[:white_check_mark:] Add `location` to Place model
+
+[:white_check_mark:] Implement controllers
 
 1. Enable place address autocomplete in add/edit place pages
+   -- Add Webpack to bundle all `.js` files
+   -- Create autocomplete module
 2. Create static map according to the place's location
 
-[ ] Create .pug files
+[:white_check_mark:] Create .pug files
 
 1. `place.pug` - render static map and place details
-2. `editPlace.pug` - already done in add place section.
+2. `editPlace.pug` - modify enctype, fix photo upload support

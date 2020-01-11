@@ -13,7 +13,7 @@ const User = mongoose.model('User');
 exports.logout = (req, res) => {
   req.logout();
   req.flash('success', "You've looked out successfully 👋");
-  res.redirect('back');
+  res.redirect('/');
 };
 
 exports.forgot = async (req, res) => {

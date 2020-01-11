@@ -487,10 +487,9 @@ body {
       flex: 1 1 auto; }
   .nav__item {
     display: flex;
-    padding: 1px;
     padding-bottom: 5px; }
     .nav__item:hover, .nav__item--active {
-      background: linear-gradient(90deg, #42e6a4 0%, #02a8a8 25%, #018383 50%, #42e6a4 75%) fixed; }
+      background: #42e6a4; }
       .nav__item:hover svg, .nav__item--active svg {
         transform: scale(1.2); }
   .nav__link {
@@ -596,7 +595,7 @@ body {
   .form textarea {
     padding: 15px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
@@ -763,10 +762,13 @@ body {
   border-radius: 0px;
   box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
   text-align: center;
-  transition: all 0.4s;
-  background: url("/uploads/place.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
+  transition: all 0.4s; }
+  .place__card img.place__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%; }
   .place__card a {
     color: #fff;
     text-decoration: none;
@@ -910,3 +912,74 @@ h3:after {
       margin-top: 30px; }
   .place__info {
     display: none; } }
+
+.single__header {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .single__header::before {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    background: linear-gradient(90deg, rgba(48, 48, 48, 0.2) 20%, rgba(48, 48, 48, 0) 50%, rgba(48, 48, 48, 0.2) 80%); }
+
+.single__title {
+  position: absolute;
+  top: 3rem;
+  max-width: 800px;
+  font-size: 10rem;
+  margin: 0;
+  z-index: 10;
+  color: #f5dea3;
+  background-image: linear-gradient(transparent 0%, transparent calc(50% - 4rem), rgba(48, 48, 48, 0.75) calc(50% - 4rem), rgba(48, 48, 48, 0.75) 100%);
+  padding: 2px 0 1px 0;
+  transition: background-position 240ms ease-in-out, padding 240ms ease-in-out;
+  background-size: 100% 200%;
+  background-position: 0 0; }
+  .single__title:hover {
+    background-position: 0 100%; }
+
+.single__image {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  position: absolute; }
+
+.single__details {
+  background: white;
+  max-width: 800px;
+  position: relative;
+  padding: 3rem;
+  margin-top: -10rem;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15);
+  z-index: 10; }
+
+.single__map {
+  width: calc(100% + 6rem);
+  max-width: none;
+  margin-top: -3rem;
+  margin-left: -3rem; }
+
+.single__location {
+  margin: 0;
+  margin-top: -3rem;
+  margin-right: -5rem;
+  background: #303030;
+  color: white;
+  display: inline-block;
+  float: right;
+  position: relative;
+  padding: 1rem; }
+  @media all and (max-width: 850px) {
+    .single__location {
+      margin-right: 0; } }

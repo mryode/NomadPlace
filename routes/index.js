@@ -48,4 +48,16 @@ router.post(
   catchErrors(authController.updateNewPassword)
 );
 
+// Edit
+router.get('/places/:id/edit', placeController.editPlace);
+router.post(
+  '/add/:id',
+  placeController.uploadImage,
+  catchErrors(placeController.resizeImage),
+  catchErrors(placeController.updatePlace)
+);
+
+// Place page
+router.get('/place/:slug', catchErrors(placeController.getPlaceBySlug));
+
 module.exports = router;

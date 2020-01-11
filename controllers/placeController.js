@@ -4,6 +4,8 @@ const uuid = require('uuid');
 const jimp = require('jimp');
 
 const Place = mongoose.model('Place');
+
+const isOwner = (place, user) => place.author.equals(user._id);
 /*
  *  ENDPOINTS
  */
@@ -29,6 +31,57 @@ exports.savePlaceInDB = async (req, res) => {
 exports.getPlaces = async (req, res) => {
   const places = await Place.find();
   res.render('places', { title: 'Places', places });
+};
+
+exports.editPlace = async (req, res) => {
+  const place = await Place.findById(req.params.id);
+
+  if (!place) {
+    req.flash('error', 'Place not found 🏸');
+    res.redirect('back');
+  }
+
+  if (!isOwner(place, req.user)) {
+    req.flash('error', 'You must be the place owner to edit it ⛔');
+    res.redirect('back');
+  }
+
+  res.render('editPlace', { title: `Edit ${place.name}`, place });
+};
+
+exports.updatePlace = async (req, res) => {
+  req.body.location.type = 'Point';
+
+  // console.log('req.body', req.body);
+
+  const place = await Place.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  console.log('place', place);
+
+  if (!place) {
+    req.flash('error', 'Place not found 🏸');
+    res.redirect('back');
+  }
+
+  req.flash(
+    'success',
+    `Successfully edited <strong>${place.name}</strong>. <a href='/place/${place.slug}'>View place -></a>`
+  );
+  res.redirect(`/places/${place._id}/edit`);
+};
+
+exports.getPlaceBySlug = async (req, res) => {
+  const place = await Place.findOne({ slug: req.params.slug });
+
+  if (!place) {
+    req.flash('error', 'Place not found 😞');
+    res.redirect('/places');
+  }
+
+  res.render('place', { title: place.name, place });
 };
 
 /*
@@ -58,7 +111,7 @@ exports.resizeImage = async (req, res, next) => {
   req.body.photo = `${uuid.v4()}.${imageExtension}`;
 
   const image = await jimp.read(req.file.buffer);
-  await image.resize(400, 400);
+  await image.resize(800, jimp.AUTO);
   await image.write(`./public/uploads/${req.body.photo}`);
 
   next();

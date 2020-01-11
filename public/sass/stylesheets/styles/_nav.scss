@@ -15,12 +15,12 @@
   }
   &__item {
     display: flex;
-    padding: 1px;
+    // padding: 1px;
     padding-bottom: 5px;
 
     &:hover,
     &--active {
-      background: $color_gradient fixed;
+      background: $light_green;
       svg {
         transform: scale(1.2);
       }

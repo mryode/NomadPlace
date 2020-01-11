@@ -1,0 +1,92 @@
+.single {
+  &__header {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      z-index: 5;
+      background: linear-gradient(
+        90deg,
+        rgba(48, 48, 48, 0.2) 20%,
+        rgba(48, 48, 48, 0) 50%,
+        rgba(48, 48, 48, 0.2) 80%
+      );
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 3rem;
+    max-width: 800px;
+    font-size: 10rem;
+    margin: 0;
+    z-index: 10;
+    color: rgba(245, 222, 163, 1);
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 4rem),
+      rgba(48, 48, 48, 0.75) calc(50% - 4rem),
+      rgba(48, 48, 48, 0.75) 100%
+    );
+    padding: 2px 0 1px 0;
+    transition: background-position 240ms ease-in-out, padding 240ms ease-in-out;
+    background-size: 100% 200%;
+    background-position: 0 0;
+
+    &:hover {
+      background-position: 0 100%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  &__details {
+    background: white;
+    max-width: 800px;
+    position: relative;
+    padding: 3rem;
+    margin-top: -10rem;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
+
+  &__map {
+    width: calc(100% + 6rem);
+    max-width: none;
+    margin-top: -3rem;
+    margin-left: -3rem;
+  }
+
+  &__location {
+    margin: 0;
+    margin-top: -3rem;
+    margin-right: -5rem;
+    background: $black;
+    color: white;
+    display: inline-block;
+    float: right;
+    position: relative;
+    padding: 1rem;
+    @media all and (max-width: 850px) {
+      margin-right: 0;
+    }
+  }
+}

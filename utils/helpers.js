@@ -17,3 +17,6 @@ exports.menu = [
 ];
 
 exports.tags = ['Wifi', 'Open Late', 'Pet Friendly', 'Licensed'];
+
+exports.staticMap = ([lng, lat]) =>
+  `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lng},${lat},12/800x150?access_token=${process.env.MAPBOX_KEY}`;
