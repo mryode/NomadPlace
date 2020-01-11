@@ -11,6 +11,7 @@
 [ ] Prevent CSRF/XSS/DOS
 [ ] Sanitize FORM submissions
 [ ] Create access control (isLoggedIn / attach permissions code to user)
+[ ] Mobile support
 
 ### Step 1 - Environment Setup
 
@@ -184,3 +185,23 @@ Used `nodemailer`
 
 1. `place.pug` - render static map and place details
 2. `editPlace.pug` - modify enctype, fix photo upload support
+
+## Step 7 - Create sample data script
+
+[:white_check_mark:] Load data
+
+Use `npm run load` to load data
+
+##### Users
+
+| Name             | Email (login)    | Password |
+| ---------------- | ---------------- | -------- |
+| Mr Yoda          | yoda@example.com | 123      |
+| Anakin Skywalker | sky@example.com  | 123      |
+| Han Solo         | han@example.com  | 123      |
+
+##### Places
+
+Taken from [coworker](https://www.coworker.com/)
+
+[:white_check_mark:] Remove data

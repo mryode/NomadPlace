@@ -5,6 +5,8 @@
   "scripts": {
     "nodemon": "nodemon ./start.js --ignore public/sass/",
     "webpack": "webpack -w --display-max-modules 0",
+    "load": "node ./data/sampleData.js",
+    "delete": "node ./data/sampleData.js --delete",
     "dev": "concurrently \"npm run nodemon\" \"npm run webpack\" --names \"SERVER,WEBPACK\"  -c \"bgBlue.bold,bgGreen.bold\" --prefix name"
   },
   "dependencies": {

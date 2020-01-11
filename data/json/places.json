@@ -1,0 +1,121 @@
+[
+  {
+    "_id": "5e1a1b98f03d2a4f5cdc360a",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.787", "32.0715"],
+      "address": "Aluf Kalman Magen 3, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late", "Pet Friendly", "Licensed"],
+    "name": "WeWork Sarona",
+    "description": "Our Sarona office space takes up the entire third floor of the new Sarona Market, the heart of Israel’s culinary arts scene. You won’t have trouble finding somewhere to bring that special client—the innovative and contemporary urban market has dozens of shops, stalls, and restaurants. The Tel Aviv coworking space combines historical architectural elements with a dynamic industrial style. Set beside towering windows, the large common area is full of sunlight. The Tel Aviv office space is pet-friendly, and many members meet while walking their dogs. If you’re headed to other parts of the city, the office space is close to several train stations and bus stops. Whether you’re a startup or an established business, WeWork Sarona has what you need.",
+    "photo": "c9f886e9-fd5e-4d79-b7bf-7abafe1a314c.jpeg",
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "created": "1578769304450",
+    "slug": "WeWork-Sarona"
+  },
+  {
+    "_id": "5e19fd814b3f1b39d80e2faf",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.8915", "32.1925"],
+      "address": "Rapaport 3, Kfar Saba, מחוז המרכז, Israel"
+    },
+    "tags": ["Wifi", "Open Late", "Licensed"],
+    "name": "Sarona Space",
+    "description": "Gym Included !!!\r\nThe coworking space, Sarona space is a unique concept. A “boutique” space within a friendly and dynamique community.\r\nAble to leverage its large and international mentor network, Sarona Space provides constant support to the startups during all stages of their evolution, dramatically reducing the risk of failure.\r\nSarona Space is part of the European fund Sarona ventures capital, its goal is to help great startups reaching their top level and turning to international.\r\nWith a very start-up conscious prices and the ability to leverage its large and international mentor network.\r\nWe invite you to come visit us, and to share your thoughts on the coworking space",
+    "photo": "4ed98c4f-c512-40f4-8738-b8b7b4d99476.jpeg",
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "created": "1578761601546",
+    "slug": "Sarona-Space"
+  },
+  {
+    "_id": "5e19fecaf03d2a4f5cdc3607",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.778", "32.0622"],
+      "address": "HaMasger 65, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late"],
+    "name": "MerkSpace",
+    "description": "MerkSpace provides affordable, fully furnished and beautifully decorated coworking spaces in the heart of Tel-Aviv, addressing freelancers, startups and SMB’s seeking to get involved in the rapidly growing ecosystem.\r\n\r\nWe provide our companies with educational, practical & personally tailored workshops and lectures to fulfill our main goal - Giving our Merkers an added value that will help their companies achieve new levels of success.\r\n\r\nDoing things together is our motto.\r\nMerkSpace’s community encourages joining our network and forming new relations & collaborations.",
+    "photo": "8e139022-34bc-425a-8326-5e88138a1bdf.jpeg",
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "created": "1578761930673",
+    "slug": "MerkSpace"
+  },
+  {
+    "_id": "5e19ffcdf03d2a4f5cdc3608",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.8768", "32.195"],
+      "address": "HaYetsira 22, Raanana, מחוז המרכז, Israel"
+    },
+    "tags": ["Wifi", "Licensed"],
+    "name": "Big Ben - Time Cafe",
+    "description": "Big Ben - Time Cafe is a shared working space in the heart of the business center of Israel, it offering a quiet and comfortable space for working, study, social and working meetings, workshops and class, lectures and etc.\r\n\r\nIn our place, we have a comfortable meeting room with projector and sound system, open space for co-working, lounge with poufs, Xbox and video games, smart TV, free WiFi, and free refreshments with coffee and tea.",
+    "photo": "b8e8f94f-bd6d-430d-a0cf-c9dc59139af7.jpeg",
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "created": "1578762189054",
+    "slug": "Big-Ben-Time-Cafe"
+  },
+  {
+    "_id": "5e1a1accf03d2a4f5cdc3609",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.7692", "32.0629"],
+      "address": "Rothschild Boulevard 45, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late"],
+    "name": "Mindspace Rothschild",
+    "description": "Mindspace is a global-boutique coworking provider and the most member-centric operator in the world. At Mindspace, we get people excited about coming to work so your business can thrive. Member companies see better employee engagement and satisfaction, drive higher productivity and innovation, attract and retain the best talent, and have the peace of mind to focus on their business.\r\n\r\nThe Mindspace Experience combines boutique personal service, inspiring and beautifully designed offices, vibrant and professional communities, and wellness, lifestyle and professional programs. Mindspace workspaces are in a class of their own: primly located, uniquely designed, and extremely loved by our members. Visit us on the web or come experience Mindspace in one of our 28 locations in Europe and the US.",
+    "photo": "ca12d2e3-8b3d-4339-b505-c80e17827396.jpeg",
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "created": "1578769100573",
+    "slug": "Mindspace-Rothschild"
+  },
+  {
+    "_id": "5e1a1da0f03d2a4f5cdc360b",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.778", "32.0622"],
+      "address": "HaMasger 55, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late", "Licensed"],
+    "name": "Hub TLV",
+    "description": "The HUB community includes more than 7,600 techies who see it as a source of diverse networking and content events, and a starting point for finding professional leads, co-founders, mentors, customers, exposure and professional consultancy.\r\nMembers describe the HUB as a second home. A place to meet collaborators and gain new perspective, a place to connect with like-minded people, have lunch or take a break.",
+    "photo": "0b0d25a8-18bd-4cc9-a31e-32a4a12247d7.jpeg",
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "created": "1578769824786",
+    "slug": "Hub-TLV"
+  },
+  {
+    "_id": "5e1a1e64f03d2a4f5cdc360c",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.7926", "32.0658"],
+      "address": "Yigal Alon 95, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late", "Pet Friendly", "Licensed"],
+    "name": "DayDayUp",
+    "description": "DayDayUp Israel Tech Accelerator is second oversea hub of DayDayUp. We are committed to connect Chinese and Israel innovation ecosystem, focusing on AI, IoT and blockchain. We create a community for corporates, startups and investors to connect with each other. DayDayUp Israel Tech Accelerator is strategicaly located in the center of Tel-Aviv, adjacent to Sarona tower, Azrieli center, google campus, and unicorn startups including Argus, Checkpoint, Cybereason, Twiggle. DayDayUp Israel Tech Accelerator is in partner with Be All, providing modern work space equipped with advanced technologies, smart ergonomics and uniquely designed environment.",
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "created": "1578770020116",
+    "slug": "DayDayUp"
+  },
+  {
+    "_id": "5e1a1f6ef03d2a4f5cdc360d",
+    "location": {
+      "type": "Point",
+      "coordinates": ["34.778", "32.0622"],
+      "address": "HaMasger 39, Tel Aviv-Yafo, מחוז תל אביב, Israel"
+    },
+    "tags": ["Wifi", "Open Late", "Pet Friendly", "Licensed"],
+    "name": "SOK",
+    "description": "SOK (Service. Office. Knowledge) is an international chain of stylish and convenient coworking places for freelancers, startups and companies\r\nSOK Nitsba Tower will open in the very center of Tel Aviv. The total area of SOK Nitsba Tower will be more than 3,000 sq. m, which will comfortably accommodate more than 500 working desks. Everything necessary for efficient work is within walking distance: cafes, restaurants, banks, government agencies, and shopping centers. The building itself has only recently completed internal renovation. Extensive transport infrastructure, convenient access to the business center, affordable cost of parking lots.",
+    "photo": "1260be1c-aee1-4bce-9cfb-5cfd9aba50f6.jpeg",
+    "author": "5e19fa7e252cc25cfcd36db3",
+    "created": "1578770286558",
+    "slug": "SOK"
+  }
+]
