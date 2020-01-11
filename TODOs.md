@@ -9,8 +9,11 @@
 - Bundled .js files
 
 [ ] Prevent CSRF/XSS/DOS
+
 [ ] Sanitize FORM submissions
+
 [ ] Create access control (isLoggedIn / attach permissions code to user)
+
 [ ] Mobile support
 
 ### Step 1 - Environment Setup
@@ -205,3 +208,5 @@ Use `npm run load` to load data
 Taken from [coworker](https://www.coworker.com/)
 
 [:white_check_mark:] Remove data
+
+Use `npm run delete`
