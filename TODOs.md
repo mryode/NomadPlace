@@ -210,3 +210,11 @@ Taken from [coworker](https://www.coworker.com/)
 [:white_check_mark:] Remove data
 
 Use `npm run delete`
+
+## Step 8 - Tags page
+
+[ ] Create routes
+
+[ ] Implement controllers
+
+[ ] Create `tag.pug` file
