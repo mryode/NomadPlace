@@ -84,6 +84,20 @@ exports.getPlaceBySlug = async (req, res) => {
   res.render('place', { title: place.name, place });
 };
 
+exports.getPlacesByTag = async (req, res) => {
+  const selectedTags = req.query.tags || [];
+  const tagsQuery = selectedTags.length
+    ? { $all: selectedTags }
+    : { $exists: true };
+
+  const tagsPromise = Place.getTagsList();
+  const placePromise = Place.find({ tags: tagsQuery });
+
+  const [tagsList, places] = await Promise.all([tagsPromise, placePromise]);
+  const count = places.length;
+  res.render('tags', { title: 'Tags', count, tagsList, selectedTags, places });
+};
+
 /*
  *  MIDDLEWARE
  */

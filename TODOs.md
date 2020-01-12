@@ -213,8 +213,14 @@ Use `npm run delete`
 
 ## Step 8 - Tags page
 
-[ ] Create routes
+[:white_check_mark:] Create routes
 
-[ ] Implement controllers
+-- GET **/tags(?tags=&tags=...)** - Get all places or places by the tags in req.query
 
-[ ] Create `tag.pug` file
+[:white_check_mark:] Implement controllers
+
+- Add static method to `Place` mode - `getTagsList` return all tags with their use count.
+- Get all tags using `getTagsList`.
+- Get all places according to the selected tags.
+
+[:white_check_mark:] Create `tags.pug` file

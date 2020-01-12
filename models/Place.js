@@ -53,6 +53,14 @@ const placeSchema = new mongoose.Schema({
   },
 });
 
+placeSchema.statics.getTagsList = function() {
+  return this.aggregate([
+    { $unwind: '$tags' },
+    { $group: { _id: '$tags', count: { $sum: 1 } } },
+    { $sort: { count: -1 } },
+  ]);
+};
+
 placeSchema.pre('save', async function(next) {
   // Not using arrow function because I'm using `this`
   if (!this.isModified('name')) {

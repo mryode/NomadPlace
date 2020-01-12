@@ -1,0 +1,23 @@
+extends layout
+
+include mixins/_placeCard
+
+block content
+  .inner
+    h2 #{title + " - " + count + " results"}
+
+    form.form(action="/tags" method="GET")
+
+      ul.tags
+        each choice in tagsList
+          input(type="checkbox" name="tags", id=choice._id, value=choice._id, checked=(selectedTags.includes(choice._id)))
+          label.tag.tag--big.tag__filter(for=choice._id)
+            span #{choice.count}
+            span #{" - "}
+            span #{choice._id}
+
+      input.form__button(type="submit" value="APPLY →" style="width: 100px")
+
+  .places
+    each place in places
+      +placeCard(place)

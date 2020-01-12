@@ -666,6 +666,27 @@ body {
     color: white; }
   .tag:hover::after {
     border-left-color: #42e6a4; }
+  .tag--big {
+    height: 40px;
+    line-height: 40px; }
+    .tag--big:before {
+      top: 17px; }
+    .tag--big:after {
+      border-bottom: 20px solid transparent;
+      border-top: 20px solid transparent;
+      border-left: 10px solid #eee; }
+  .tag__filter {
+    background: white; }
+    .tag__filter:before {
+      background: #eee; }
+    .tag__filter:after {
+      background: #eee;
+      border-left-color: white; }
+    .tag__filter:hover, .tag__filter--active {
+      color: white;
+      background: #42e6a4; }
+      .tag__filter:hover:after, .tag__filter--active:after {
+        border-left-color: #42e6a4; }
 
 @keyframes slideIn {
   0% {

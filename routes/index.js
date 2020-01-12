@@ -60,4 +60,7 @@ router.post(
 // Place page
 router.get('/place/:slug', catchErrors(placeController.getPlaceBySlug));
 
+// Tags
+router.get('/tags', catchErrors(placeController.getPlacesByTag));
+
 module.exports = router;
