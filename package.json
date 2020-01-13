@@ -10,6 +10,7 @@
     "dev": "concurrently \"npm run nodemon\" \"npm run webpack\" --names \"SERVER,WEBPACK\"  -c \"bgBlue.bold,bgGreen.bold\" --prefix name"
   },
   "dependencies": {
+    "axios": "^0.19.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
@@ -39,10 +40,11 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.2",
-    "css-loader": "^3.4.1",
+    "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.9.0",
@@ -53,8 +55,12 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-security": "^1.4.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
     "nodemon": "^2.0.2",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"

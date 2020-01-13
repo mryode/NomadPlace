@@ -1,17 +1,36 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
 
-// This is our JavaScript rule that specifies what to do with .js files
-// const javascript = {
-//   test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
-//   use: [
-//     {
-//       loader: 'babel-loader',
-//       options: {
-//         presets: ['@babel/preset-env'],
-//       }, // this is one way of passing options
-//     },
-//   ],
-// };
+// JavaScript rule
+const javascript = {
+  test: /\.m?js$/,
+  exclude: /(node_modules|bower_components)/,
+  use: {
+    loader: 'babel-loader',
+    options: {
+      presets: ['@babel/preset-env'],
+    },
+  },
+};
+
+const postcss = {
+  loader: 'postcss-loader',
+  options: {
+    plugins() {
+      return [autoprefixer()];
+    },
+  },
+};
+
+const styles = {
+  // test: /\.s(a|c)ss$/,
+  test: /\.(scss)$/,
+  // here we pass the options as query params b/c it's short.
+  // remember above we used an object for each loader instead of just a string?
+  // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
+  use: [MiniCssExtractPlugin.loader, 'css-loader', postcss, 'sass-loader'],
+};
 
 const config = {
   entry: {
@@ -22,33 +41,13 @@ const config = {
     filename: '[name].bundle.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-    ],
+    rules: [javascript, styles],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].bundle.css',
+    }),
+  ],
   mode: 'development',
   devtool: 'source-map',
   watch: true,
