@@ -245,3 +245,15 @@ Use `npm run delete`
 - window.on('click') - check if clicked outside result's div and hide them if true
 
 [:white_check_mark:] Create and style results section
+
+## Step 10 - Hearts
+
+[ ] Add hearts to `User` model
+
+[ ] Enable hearts on `_placeCard.pug`
+
+[ ] Make API endpoint for getting and updating hearts
+
+[ ] Populate hearts when viewing places
+
+[ ] Make hearts page to view all places that the user hearted
