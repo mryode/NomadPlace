@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-function searchResultsHTML(stores) {
-  return stores
+function searchResultsHTML(places) {
+  return places
     .map(
-      store => `
-      <a href="/store/${store.slug}" class="search__result">
-        <strong>${store.name}</strong>
+      place => `
+      <a href="/place/${place.slug}" class="search__result">
+        <strong>${place.name}</strong>
       </a>
     `
     )
@@ -66,6 +66,12 @@ export default function typeAhead(search) {
         break;
 
       case 13: // enter
+        // show hidden results again
+        if (searchResults.style.display === 'none') {
+          searchResults.style.display = 'block';
+          return;
+        }
+
         if (results[current].href) {
           window.location = results[current].href;
         }
@@ -82,5 +88,12 @@ export default function typeAhead(search) {
     if (current % results.length === -1) current = results.length - 1;
 
     results[current].classList.add(activeClass);
+  });
+
+  // If clicked outside - hide results
+  window.on('click', e => {
+    if (!search.contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
   });
 }

@@ -134,3 +134,11 @@ exports.resizeImage = async (req, res, next) => {
 /*
  *  API
  */
+exports.searchPlaces = async (req, res) => {
+  const places = await Place.find(
+    { $text: { $search: req.query.q } },
+    { score: { $meta: 'textScore' } }
+  ).sort({ score: { $meta: 'textScore' } });
+
+  res.json(places);
+};

@@ -4,9 +4,10 @@
 
 ### Global TODOs
 
-[:construction:] Use WebPack
+[:white_check_mark:] Use WebPack
 
 - Bundled .js files
+- Bundled .scss files
 
 [ ] Prevent CSRF/XSS/DOS
 
@@ -227,8 +228,20 @@ Use `npm run delete`
 
 ## Step 9 - Search (with autocomplete)
 
-[ ] Create API endpoint
+[:white_check_mark:] Index `name` and `description` fields - for better search capabilities
 
-[ ] Create client autocomplete script
+[:white_check_mark:] Create API endpoint
 
-[ ] Create and style results section
+-- GET **/api/v1/search?q=...** - search for places according to query string
+
+- Find places according to the search term (search inside `name` and `description`)
+- Sort by the most relevant results
+- Return json
+
+[:white_check_mark:] Create client autocomplete script
+
+- on('input') - send api call to the backend to find places
+- on('keydown') - iterate through the results and highlight current focus
+- window.on('click') - check if clicked outside result's div and hide them if true
+
+[:white_check_mark:] Create and style results section

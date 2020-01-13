@@ -593,7 +593,7 @@ body {
     width: 100%;
     top: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 5;
+    z-index: 15;
     left: 0; }
   .search__input {
     font-family: inherit;

@@ -53,6 +53,12 @@ const placeSchema = new mongoose.Schema({
   },
 });
 
+// Indexes
+placeSchema.index({
+  name: 'text',
+  description: 'text',
+});
+
 placeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags' },

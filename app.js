@@ -24,13 +24,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Compile the .scss file into one unified .css file
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, 'public/sass/'),
-    dest: path.join(__dirname, 'public/'),
-    debug: true,
-  })
-);
+// app.use(
+//   sassMiddleware({
+//     src: path.join(__dirname, 'public/sass/'),
+//     dest: path.join(__dirname, 'public/'),
+//     debug: true,
+//   })
+// );
 
 app.use(express.static(path.join(__dirname, 'public')));
 

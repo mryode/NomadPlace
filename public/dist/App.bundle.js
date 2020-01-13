@@ -12666,9 +12666,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function searchResultsHTML(stores) {
-  return stores.map(function (store) {
-    return "\n      <a href=\"/store/".concat(store.slug, "\" class=\"search__result\">\n        <strong>").concat(store.name, "</strong>\n      </a>\n    ");
+function searchResultsHTML(places) {
+  return places.map(function (place) {
+    return "\n      <a href=\"/place/".concat(place.slug, "\" class=\"search__result\">\n        <strong>").concat(place.name, "</strong>\n      </a>\n    ");
   }).join('');
 }
 
@@ -12719,6 +12719,12 @@ function typeAhead(search) {
 
       case 13:
         // enter
+        // show hidden results again
+        if (searchResults.style.display === 'none') {
+          searchResults.style.display = 'block';
+          return;
+        }
+
         if (results[current].href) {
           window.location = results[current].href;
         }
@@ -12734,6 +12740,12 @@ function typeAhead(search) {
     if (current % results.length === 0) current = 0;
     if (current % results.length === -1) current = results.length - 1;
     results[current].classList.add(activeClass);
+  }); // If clicked outside - hide results
+
+  window.on('click', function (e) {
+    if (!search.contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
   });
 }
 
