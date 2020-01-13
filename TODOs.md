@@ -224,3 +224,11 @@ Use `npm run delete`
 - Get all places according to the selected tags.
 
 [:white_check_mark:] Create `tags.pug` file
+
+## Step 9 - Search (with autocomplete)
+
+[ ] Create API endpoint
+
+[ ] Create client autocomplete script
+
+[ ] Create and style results section
