@@ -18,6 +18,12 @@ const userSchema = new Schema({
     required: 'You must supply a name.',
     trim: true,
   },
+  hearts: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Place',
+    },
+  ],
   resetPasswordToken: {
     type: String,
   },

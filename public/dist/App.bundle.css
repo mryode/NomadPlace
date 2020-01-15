@@ -1077,5 +1077,16 @@ h3:after {
     .single__location {
       margin-right: 0; } }
 
+.heart__button {
+  background: none;
+  border: 0;
+  outline: 0;
+  position: relative; }
+  .heart__button--hearted svg {
+    fill: red; }
+
+.heart svg {
+  width: 25px; }
+
 
 /*# sourceMappingURL=App.bundle.css.map*/

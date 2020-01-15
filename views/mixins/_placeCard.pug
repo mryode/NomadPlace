@@ -21,9 +21,17 @@ mixin placeCard(place={})
         .place__action.place__action--edit
           a(href=`/places/${place._id}/edit`)
             != h.icon('pencil')
-        //- .place__action--like
-          button
-            != h.icon('heart')
+
+      if user
+        .place__action--like
+          form.heart(action=`api/v1/${place._id}/heart`, method="POST")
+
+            - const userHearts = user.hearts.map(obj => obj.toString());
+            - const buttonClass = userHearts.includes(place._id.toString()) ? 'heart__button--hearted' : ''
+
+            button.heart__button(type="submit" name='heart', class=(buttonClass))
+              != h.icon('heart')
+
         //- .place__action--review
           button
             != h.icon('review')

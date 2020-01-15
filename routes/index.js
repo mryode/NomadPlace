@@ -63,9 +63,13 @@ router.get('/place/:slug', catchErrors(placeController.getPlaceBySlug));
 // Tags
 router.get('/tags', catchErrors(placeController.getPlacesByTag));
 
+// Hearts
+router.get('/hearts', catchErrors(placeController.getHeartsPage));
+
 /**
  * API
  */
 router.get('/api/v1/search', catchErrors(placeController.searchPlaces));
+router.post('/api/v1/:id/heart', catchErrors(placeController.heartPlace));
 
 module.exports = router;

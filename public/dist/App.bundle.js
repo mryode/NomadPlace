@@ -12652,6 +12652,42 @@ NodeList.prototype.addEventListener = multiOn;
 
 /***/ }),
 
+/***/ "./public/javascripts/modules/heart.js":
+/*!*********************************************!*\
+  !*** ./public/javascripts/modules/heart.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bling__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bling */ "./public/javascripts/modules/bling.js");
+
+
+
+function ajaxHeart(e) {
+  var _this = this;
+
+  e.preventDefault();
+  console.log('e', e);
+  console.log('this', this);
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(e.target.action).then(function (res) {
+    var isHearted = _this.heart.classList.toggle('heart__button--hearted');
+
+    Object(_bling__WEBPACK_IMPORTED_MODULE_1__["$"])('.heart-count').textContent = res.data.hearts.length; // NOTE optional
+
+    if (window.location.href.endsWith('/hearts')) window.location.reload();
+  })["catch"](function (err) {
+    return console.error(err);
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ajaxHeart);
+
+/***/ }),
+
 /***/ "./public/javascripts/modules/searchAutoComplete.js":
 /*!**********************************************************!*\
   !*** ./public/javascripts/modules/searchAutoComplete.js ***!
@@ -12763,14 +12799,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_bling__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/bling */ "./public/javascripts/modules/bling.js");
 /* harmony import */ var _modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/addressAutoComplete */ "./public/javascripts/modules/addressAutoComplete.js");
 /* harmony import */ var _modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/searchAutoComplete */ "./public/javascripts/modules/searchAutoComplete.js");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scss/style.scss */ "./public/scss/style.scss");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_heart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/heart */ "./public/javascripts/modules/heart.js");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scss/style.scss */ "./public/scss/style.scss");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 Object(_modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#address'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lat'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lng'));
 Object(_modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('.search'));
+var heartForms = Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$$"])('form.heart');
+heartForms.on('submit', _modules_heart__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 /***/ }),
 

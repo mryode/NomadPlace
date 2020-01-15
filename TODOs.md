@@ -248,12 +248,24 @@ Use `npm run delete`
 
 ## Step 10 - Hearts
 
-[ ] Add hearts to `User` model
+[:white_check_mark:] Add hearts to `User` model
 
-[ ] Enable hearts on `_placeCard.pug`
+- hearts - Array of `Place` refs
 
-[ ] Make API endpoint for getting and updating hearts
+[:white_check_mark:] Enable hearts on `_placeCard.pug`
 
-[ ] Populate hearts when viewing places
+- Display button only when user logged in
 
-[ ] Make hearts page to view all places that the user hearted
+[:white_check_mark:] Make API endpoint for getting and updating hearts
+
+-- POST **/api/v1/:id/heart**
+
+- tells the backend to update `hearts` array of the logged in user
+
+[:white_check_mark:] Populate hearts when viewing places
+
+- Created frontend Javascript code which connects to the API for updating hearts state.
+
+[:white_check_mark:] Make hearts page to view all places that the user hearted
+
+- Find places with hearts and render them using `places.pug` page with different title.

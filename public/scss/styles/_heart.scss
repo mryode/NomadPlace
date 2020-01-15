@@ -1,0 +1,18 @@
+.heart {
+  &__button {
+    background: none;
+    border: 0;
+    outline: 0;
+    position: relative;
+
+    &--hearted {
+      svg {
+        fill: red;
+      }
+    }
+  }
+
+  svg {
+    width: 25px;
+  }
+}

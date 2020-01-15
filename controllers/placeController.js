@@ -4,6 +4,7 @@ const uuid = require('uuid');
 const jimp = require('jimp');
 
 const Place = mongoose.model('Place');
+const User = mongoose.model('User');
 
 const isOwner = (place, user) => place.author.equals(user._id);
 /*
@@ -98,6 +99,13 @@ exports.getPlacesByTag = async (req, res) => {
   res.render('tags', { title: 'Tags', count, tagsList, selectedTags, places });
 };
 
+exports.getHeartsPage = async (req, res) => {
+  const userHearts = req.user.hearts;
+  const places = await Place.find({ _id: userHearts });
+
+  res.render('places', { title: 'Places you liked 💘', places });
+};
+
 /*
  *  MIDDLEWARE
  */
@@ -141,4 +149,17 @@ exports.searchPlaces = async (req, res) => {
   ).sort({ score: { $meta: 'textScore' } });
 
   res.json(places);
+};
+
+exports.heartPlace = async (req, res) => {
+  const userHearts = req.user.hearts.map(h => h.toString());
+  const action = userHearts.includes(req.params.id) ? '$pull' : '$addToSet';
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { [action]: { hearts: req.params.id } },
+    { new: true }
+  );
+
+  res.json(user);
 };
