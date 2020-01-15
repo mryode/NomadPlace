@@ -271,3 +271,11 @@ Use `npm run delete`
 -- GET **/hearts**
 
 - Check for places with hearts and render them using `places.pug` page with different title
+
+## Step 11 - Map page
+
+[ ] Create API endpoint for getting places near location (default: TLV)
+
+[ ] Choose Map engine
+
+[ ] Integrate Map to frontend
