@@ -264,8 +264,10 @@ Use `npm run delete`
 
 [:white_check_mark:] Populate hearts when viewing places
 
-- Created frontend Javascript code which connects to the API for updating hearts state.
+- Created frontend Javascript code which connects to the API for updating hearts state
 
 [:white_check_mark:] Make hearts page to view all places that the user hearted
 
-- Find places with hearts and render them using `places.pug` page with different title.
+-- GET **/hearts**
+
+- Check for places with hearts and render them using `places.pug` page with different title
