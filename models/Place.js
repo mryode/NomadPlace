@@ -59,11 +59,28 @@ placeSchema.index({
   description: 'text',
 });
 
+placeSchema.index({
+  location: '2dsphere',
+});
+
 placeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags' },
     { $group: { _id: '$tags', count: { $sum: 1 } } },
     { $sort: { count: -1 } },
+  ]);
+};
+
+placeSchema.statics.getPlacesList = function() {
+  return this.aggregate([
+    {
+      $group: {
+        _id: '$location.coordinates',
+        docs: {
+          $push: '$$ROOT',
+        },
+      },
+    },
   ]);
 };
 

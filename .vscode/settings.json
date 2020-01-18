@@ -4,10 +4,13 @@
         "TODOs",
         "deserialize",
         "javascripts",
+        "mapbox",
+        "mapboxgl",
         "mimetype",
         "nomadplace",
         "paren",
         "parens",
+        "placesjs",
         "readonly",
         "resave",
         "uploader"

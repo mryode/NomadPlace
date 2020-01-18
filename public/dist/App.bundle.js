@@ -12688,6 +12688,115 @@ function ajaxHeart(e) {
 
 /***/ }),
 
+/***/ "./public/javascripts/modules/map.js":
+/*!*******************************************!*\
+  !*** ./public/javascripts/modules/map.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bling__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bling */ "./public/javascripts/modules/bling.js");
+
+
+
+var placesjs = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js"); // 1. Create a map object
+// 2. Get all places using our API
+// 3. Add markers and push boundaries
+// 4. Create auto complete input
+
+
+function loadPlaces(map) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/v1/places').then(function (res) {
+    if (!res.data.length) {
+      alert('No places found near this location!');
+      return;
+    }
+
+    var places = res.data.map(function (record) {
+      return record.docs;
+    }); // Initiate bounds to the first point
+
+    var position = places[0][0].location.coordinates;
+    var sw = new mapboxgl.LngLat(position[0], position[1]);
+    var ne = new mapboxgl.LngLat(position[0], position[1]);
+    var bounds = new mapboxgl.LngLatBounds(sw, ne);
+    var markers = [];
+    places.forEach(function (docs) {
+      return docs.forEach(function (place, index) {
+        var coordinates;
+
+        if (index === 0) {
+          coordinates = place.location.coordinates;
+        } else {
+          coordinates = [place.location.coordinates[0] + Math.random() / 10000, place.location.coordinates[1] + Math.random() / 10000];
+        }
+
+        bounds.extend(coordinates);
+        var marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+        marker.place = place; // Save place data
+
+        markers.push(marker);
+      });
+    });
+    markers.forEach(function (marker) {
+      console.log('marker', marker);
+      var html = "\n        <div>\n          <a href=\"/place/".concat(marker.place.slug, "\">\n            <p><strong>").concat(marker.place.name, "</strong></p>\n          </a>\n          <p>").concat(marker.place.location.address, "</p>\n        </div>\n      ");
+      var popup = new mapboxgl.Popup({
+        className: 'popup'
+      }).setHTML(html);
+      marker.setPopup(popup);
+      marker.getElement().addEventListener('click', function () {
+        map.flyTo({
+          center: [marker.getLngLat().lng, marker.getLngLat().lat],
+          zoom: 18,
+          speed: 0.3
+        });
+      });
+    });
+    console.log('markers', markers);
+    map.setCenter(bounds.getCenter());
+    map.fitBounds(bounds, {
+      maxZoom: 13,
+      padding: 50
+    });
+  });
+}
+
+function makeMap(mapDivId) {
+  if (!Object(_bling__WEBPACK_IMPORTED_MODULE_1__["$"])("#".concat(mapDivId))) return; // TODO Find a way to not revealing the API KEY
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoibXJ5b2RlIiwiYSI6ImNrNWZkZGVrczJqczQzbXBneHlodXZlOW0ifQ.6_5DbnL3QBRJ8dMZzFPUrQ';
+  var mapOptions = {
+    container: mapDivId,
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 9
+  };
+  var map = new mapboxgl.Map(mapOptions);
+  map.addControl(new mapboxgl.NavigationControl());
+  loadPlaces(map);
+  var placesAutoComplete = placesjs({
+    appId: process.env.PLACES_APP_ID,
+    apiKey: process.env.PLACES_API_KEY,
+    container: Object(_bling__WEBPACK_IMPORTED_MODULE_1__["$"])('input[name="geolocation"]')
+  });
+  placesAutoComplete.on('change', function (e) {
+    map.flyTo({
+      center: [e.suggestion.latlng.lng, e.suggestion.latlng.lat],
+      zoom: 13,
+      speed: 0.3
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (makeMap);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/node-libs-browser/node_modules/process/browser.js */ "./node_modules/node-libs-browser/node_modules/process/browser.js")))
+
+/***/ }),
+
 /***/ "./public/javascripts/modules/searchAutoComplete.js":
 /*!**********************************************************!*\
   !*** ./public/javascripts/modules/searchAutoComplete.js ***!
@@ -12800,8 +12909,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/addressAutoComplete */ "./public/javascripts/modules/addressAutoComplete.js");
 /* harmony import */ var _modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/searchAutoComplete */ "./public/javascripts/modules/searchAutoComplete.js");
 /* harmony import */ var _modules_heart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/heart */ "./public/javascripts/modules/heart.js");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scss/style.scss */ "./public/scss/style.scss");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/map */ "./public/javascripts/modules/map.js");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scss/style.scss */ "./public/scss/style.scss");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12809,6 +12920,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#address'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lat'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lng'));
 Object(_modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('.search'));
+Object(_modules_map__WEBPACK_IMPORTED_MODULE_4__["default"])('map');
 var heartForms = Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$$"])('form.heart');
 heartForms.on('submit', _modules_heart__WEBPACK_IMPORTED_MODULE_3__["default"]);
 

@@ -106,6 +106,10 @@ exports.getHeartsPage = async (req, res) => {
   res.render('places', { title: 'Places you liked 💘', places });
 };
 
+exports.mapPage = (req, res) => {
+  res.render('map', { title: 'View places on map 🗺' });
+};
+
 /*
  *  MIDDLEWARE
  */
@@ -162,4 +166,10 @@ exports.heartPlace = async (req, res) => {
   );
 
   res.json(user);
+};
+
+exports.mapPlaces = async (req, res) => {
+  const places = await Place.getPlacesList();
+
+  res.json(places);
 };

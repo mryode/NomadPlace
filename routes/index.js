@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', placeController.homePage);
 
 // Add Place
-// TODO Check if the user logged in
+// TODO Check if user logged in
 // TODO Create form validator
 router.get('/add', placeController.addPlace);
 router.post(
@@ -66,10 +66,14 @@ router.get('/tags', catchErrors(placeController.getPlacesByTag));
 // Hearts
 router.get('/hearts', catchErrors(placeController.getHeartsPage));
 
+// Map
+router.get('/map', placeController.mapPage);
+
 /**
  * API
  */
 router.get('/api/v1/search', catchErrors(placeController.searchPlaces));
 router.post('/api/v1/:id/heart', catchErrors(placeController.heartPlace));
+router.get('/api/v1/places', catchErrors(placeController.mapPlaces));
 
 module.exports = router;

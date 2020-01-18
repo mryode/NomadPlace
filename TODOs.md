@@ -274,8 +274,23 @@ Use `npm run delete`
 
 ## Step 11 - Map page
 
-[ ] Create API endpoint for getting places near location (default: TLV)
+[:white_check_mark:] Create API and router endpoints
 
-[ ] Choose Map engine
+-- GET **/api/v1/places** - return places grouped by same coordinates.
+-- GET **/map** - move to map page
 
-[ ] Integrate Map to frontend
+[:white_check_mark:] Choose Map engine
+
+- [mapbox](https://www.mapbox.com/)
+
+[:white_check_mark:] Database support
+
+- Added 2dsphere index for locations
+- Create static function `getPlacesList` on `Place` schema
+
+[:white_check_mark:] Integrate Map to frontend
+
+1. Create a map object
+2. Get all places using our API
+3. Add markers and push boundaries
+4. Create auto complete input - zoom to location on change

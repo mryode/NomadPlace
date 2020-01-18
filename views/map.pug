@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+  .inner
+    h2 #{title}
+    .map
+      .autocomplete
+        input.autocomplete__input(type="text" name="geolocation" placeholder="Search for a place")
+      #map
