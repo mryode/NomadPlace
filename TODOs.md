@@ -294,3 +294,19 @@ Use `npm run delete`
 2. Get all places using our API
 3. Add markers and push boundaries
 4. Create auto complete input - zoom to location on change
+
+## Step 12 - Reviews
+
+[ ] Create `Review` model
+
+[ ] Add reviews to `Place` model
+
+[ ] Create review endpoints
+
+1. Add
+2. Remove
+3. List(?)
+
+[ ] Create Add Reviews section in `place` page
+
+[ ] Add reviews count to `_placeCard`
