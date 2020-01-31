@@ -7,7 +7,7 @@ mixin placeCard(place={})
 
       .place__tags
         each t, index in place.tags
-          a(href=`/tags/${t}`) #{t}
+          a(href=`/tags?tags=${t}`) #{t}
           if index < place.tags.length - 1
             span #{", "}
 
