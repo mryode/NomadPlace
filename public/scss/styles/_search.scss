@@ -4,6 +4,7 @@
   display: flex;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   font-family: "Oswald", sans-serif;
+
   &__results {
     background: white;
     position: absolute;
@@ -15,21 +16,29 @@
   }
   &__input {
     font-family: inherit;
-    font-size: 25px;
+    font-size: 2rem;
     background: none;
-    color: white;
+    color: $black;
     outline: 0;
     border: 0;
-    margin: 10px;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 5px solid transparent;
+
+    &:hover,
+    &:focus {
+      border-bottom: 5px solid $black;
+    }
   }
   &__result {
     display: flex;
     align-items: center;
-    padding: 15px 10px;
-    font-size: 18px;
-    border-bottom: 1px solid #ececec;
+    padding: 2rem 1rem;
+    font-size: 1.5rem;
+    background: $black;
+    color: white;
     &--active {
-      background: #f1f1f1;
+      color: $light_brown;
     }
   }
 }

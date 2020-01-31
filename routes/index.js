@@ -10,7 +10,7 @@ const { catchErrors } = require('../handlers/errorHandler');
 const router = express.Router();
 
 // Home Page
-router.get('/', placeController.homePage);
+router.get('/', placeController.getPlaces);
 
 // Add Place
 // TODO Check if user logged in

@@ -4,9 +4,8 @@
   margin: 0;
   padding: 0;
   justify-content: space-between;
-  background: $black;
+  background: $light_brown;
   font-family: "Oswald", sans-serif;
-  font-size: 1rem;
   &__section {
     display: flex;
     &--search {
@@ -15,24 +14,23 @@
   }
   &__item {
     display: flex;
-    // padding: 1px;
     padding-bottom: 5px;
 
     &:hover,
     &--active {
-      background: $light_green;
-      svg {
-        transform: scale(1.2);
-      }
+      background: $black;
+      // svg {
+      //   transform: scale(1.2);
+      // }
     }
   }
   &__link {
-    background: $black;
-    color: white;
+    background: $light_brown;
+    color: $black;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
-    font-size: 1.5rem;
-    padding: 1rem;
+    font-size: 2rem;
+    padding: 0 2rem;
     display: block;
     display: flex;
     flex-direction: column;
@@ -40,47 +38,54 @@
     justify-content: center;
     transition: transform 0.2s;
 
-    svg {
-      width: 30px;
-      transition: all 0.2s;
-      fill: white;
-      margin-bottom: 1rem;
-    }
+    // svg {
+    //   width: 20px;
+    //   transition: all 0.2s;
+    //   fill: white;
+    //   margin-bottom: 1rem;
+    // }
 
     &:hover {
       border-right-color: rgba(0, 0, 0, 0.05);
     }
 
-    &--logo {
-      &:hover {
-        svg {
-          transform: none;
-        }
-      }
-      svg {
-        width: 100px;
-        margin: 0;
-      }
+    .avatar {
+      min-width: 30px;
+      height: 30px;
     }
+    // &--logo {
+    //   &:hover {
+    //     svg {
+    //       transform: none;
+    //     }
+    //   }
+    //   svg {
+    //     width: 100px;
+    //     margin: 0;
+    //   }
+    // }
   }
 }
 
-@media all and (max-width: $bp1) {
-  .nav {
-    &__link {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      svg {
-        width: 20px;
-      }
-      &--logo {
-        svg {
-          width: 100px;
-        }
-      }
-    }
-  }
+.heart-count:before {
+  content: "♥️";
+  margin-right: 1rem;
 }
+
+// @media all and (max-width: $bp1) {
+//   .nav {
+//     &__link {
+//       svg {
+//         width: 20px;
+//       }
+//       &--logo {
+//         svg {
+//           width: 100px;
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media all and (max-width: $bp2) {
   .nav {
@@ -103,13 +108,9 @@
       &--user {
         order: -1;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        .avatar {
-          min-width: 20px;
-          height: 20px;
-        }
-        svg {
-          display: none;
-        }
+        // svg {
+        //   display: none;
+        // }
       }
     }
     &__item {
@@ -117,19 +118,15 @@
     }
     &__link {
       width: 100%;
-      svg {
-        // width: 5px;
-        max-width: 100%;
-      }
-      &--logo {
-        svg {
-          width: 100%;
-        }
-      }
+      // svg {
+      //   // width: 5px;
+      //   max-width: 100%;
+      // }
+      // &--logo {
+      //   svg {
+      //     width: 100%;
+      //   }
+      // }
     }
-  }
-  .heart-count:before {
-    content: "♥️";
-    margin-right: 1rem;
   }
 }

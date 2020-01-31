@@ -10,10 +10,6 @@ const isOwner = (place, user) => place.author.equals(user._id);
 /*
  *  ENDPOINTS
  */
-exports.homePage = (req, res) => {
-  res.render('index', { title: 'Home' });
-};
-
 exports.addPlace = (req, res) => {
   res.render('editPlace', { title: 'Add Place' });
 };
