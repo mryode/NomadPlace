@@ -1,57 +1,63 @@
 const mongoose = require('mongoose');
 const slug = require('slug');
 
-const placeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: 'You must supply place name.',
-  },
-  description: {
-    type: String,
-    trim: true,
-    required: 'You must supply place description.',
-  },
-  slug: {
-    type: String,
-    trim: true,
-  },
-  tags: [
-    {
+const placeSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: 'You must supply place name.',
+    },
+    description: {
+      type: String,
+      trim: true,
+      required: 'You must supply place description.',
+    },
+    slug: {
       type: String,
       trim: true,
     },
-  ],
-  photo: {
-    type: String,
-    trim: true,
-  },
-  location: {
-    type: {
-      type: String,
-      default: 'Point',
-    },
-    coordinates: [
+    tags: [
       {
-        type: Number,
-        required: 'You must supply coordinates.',
+        type: String,
+        trim: true,
       },
     ],
-    address: {
+    photo: {
       type: String,
-      required: 'You must supply address.',
+      trim: true,
+    },
+    location: {
+      type: {
+        type: String,
+        default: 'Point',
+      },
+      coordinates: [
+        {
+          type: Number,
+          required: 'You must supply coordinates.',
+        },
+      ],
+      address: {
+        type: String,
+        required: 'You must supply address.',
+      },
+    },
+    author: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: 'You must supply an Author.',
+    },
+    created: {
+      type: Date,
+      default: Date.now,
     },
   },
-  author: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'User',
-    required: 'You must supply an Author.',
-  },
-  created: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  {
+    toJSON: { virtual: true },
+    toObject: { virtual: true },
+  }
+);
 
 // Indexes
 placeSchema.index({
@@ -101,5 +107,19 @@ placeSchema.pre('save', async function(next) {
 
   next();
 });
+
+placeSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'place',
+});
+
+function autoPopulate(next) {
+  this.populate('reviews');
+  next();
+}
+
+placeSchema.pre('find', autoPopulate);
+placeSchema.pre('findOne', autoPopulate);
 
 module.exports = mongoose.model('Place', placeSchema);

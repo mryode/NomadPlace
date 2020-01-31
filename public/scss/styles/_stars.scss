@@ -74,3 +74,22 @@
     }
   }
 }
+
+@media all and (max-width: $bp3) {
+  .rating__icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .rating__label {
+    padding: 0 1px;
+  }
+
+  .rating__label--half {
+    padding: 0;
+    width: 14px;
+    margin-right: -14px;
+    padding-left: 1px;
+    z-index: 2;
+  }
+}

@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap");
 
+$title-font: "Oswald", sans-serif;
+$text-font: "Montserrat", sans-serif;
+
 html {
   font-size: 10px;
 }
@@ -16,7 +19,7 @@ h4,
 h5,
 h6 {
   font-size: 5rem;
-  font-family: "Oswald", sans-serif;
+  font-family: $title-font;
   font-weight: 600;
   letter-spacing: -1px;
 }

@@ -1,5 +1,8 @@
 extends layout
 
+include mixins/_reviewForm
+include mixins/_review
+
 block content
   .single
     .single__header
@@ -17,3 +20,11 @@ block content
           li.tag
             a.tag__link(href=`/tags/${tag}`)
               span.tag__text #{tag}
+
+    if user
+      +reviewForm(place)
+
+    if place.reviews
+      .reviews
+        each review, index in place.reviews
+          +review(review, index)

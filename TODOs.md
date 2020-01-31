@@ -258,7 +258,7 @@ Use `npm run delete`
 
 [:white_check_mark:] Make API endpoint for getting and updating hearts
 
--- POST **/api/v1/:id/heart**
+-- POST **/api/v1/places/:id/heart**
 
 - tells the backend to update `hearts` array of the logged in user
 
@@ -297,16 +297,24 @@ Use `npm run delete`
 
 ## Step 12 - Reviews
 
-[ ] Create `Review` model
+[:white_check_mark:] Create `Review` model
 
-[ ] Add reviews to `Place` model
+1. author
+2. place
+3. title
+4. text
+5. rating
+6. created
 
-[ ] Create review endpoints
+[:white_check_mark:] Add reviews to `Place` model
 
-1. Add
-2. Remove
-3. List(?)
+Using virtual field connect between Place id and reviews.
 
-[ ] Create Add Reviews section in `place` page
+[:white_check_mark:] Create review endpoints
 
-[ ] Add reviews count to `_placeCard`
+-- POST **/review/:id** - adds review to place according to `id`
+-- POST **/api/v1/reviews/:id/delete** - deletes review written by the user currently logged in.
+
+[:white_check_mark:] Create Add Reviews section in `place` page
+
+[:white_check_mark:] Add reviews count to `_placeCard`

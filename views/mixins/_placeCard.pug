@@ -24,7 +24,7 @@ mixin placeCard(place={})
 
       if user
         .place__action--like
-          form.heart(action=`api/v1/${place._id}/heart`, method="POST")
+          form.heart(action=`api/v1/places/${place._id}/heart`, method="POST")
 
             - const userHearts = user.hearts.map(obj => obj.toString());
             - const buttonClass = userHearts.includes(place._id.toString()) ? 'heart__button--hearted' : ''
@@ -32,9 +32,10 @@ mixin placeCard(place={})
             button.heart__button(type="submit" name='heart', class=(buttonClass))
               != h.icon('heart')
 
-        //- .place__action--review
-          button
-            != h.icon('review')
+      if place.reviews
+        .place__action.place__action--count
+          != h.icon('comment')
+          span #{place.reviews.length}
 
     img.place__img(src=`/uploads/${place.photo || 'place.jpg'}`, alt=`${place.name} photo`)
     .color-overlay

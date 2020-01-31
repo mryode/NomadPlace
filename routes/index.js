@@ -3,6 +3,7 @@ const express = require('express');
 const placeController = require('../controllers/placeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const reviewController = require('../controllers/reviewController');
 
 const { catchErrors } = require('../handlers/errorHandler');
 
@@ -69,11 +70,21 @@ router.get('/hearts', catchErrors(placeController.getHeartsPage));
 // Map
 router.get('/map', placeController.mapPage);
 
+// Reviews
+router.post('/review/:id', catchErrors(reviewController.addReview));
+
 /**
  * API
  */
 router.get('/api/v1/search', catchErrors(placeController.searchPlaces));
-router.post('/api/v1/:id/heart', catchErrors(placeController.heartPlace));
+router.post(
+  '/api/v1/places/:id/heart',
+  catchErrors(placeController.heartPlace)
+);
 router.get('/api/v1/places', catchErrors(placeController.mapPlaces));
+router.post(
+  '/api/v1/reviews/:id/delete',
+  catchErrors(reviewController.deleteReview)
+);
 
 module.exports = router;

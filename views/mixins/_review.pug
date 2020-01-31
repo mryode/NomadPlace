@@ -1,0 +1,47 @@
+include ./_stars
+
+mixin review(review, index)
+  .review
+    .review__meta
+      .review__author
+        img.avatar(src=review.author.gravatar, alt=review.author.name)
+        p #{review.author.name}
+      .review__time
+        time(datetime=review.created) #{h.moment(review.created).fromNow()}
+
+      if user && review.author._id.equals(user._id)
+        .review__actions
+          form(action=`../api/v1/reviews/${review._id}/delete`, method="POST")
+            button.delete__button(type="submit")
+              != h.icon('trash')
+
+
+    .review__details
+      .review__title
+        h2 #{review.title}
+
+        .review__stars
+          - const full = Math.floor(review.rating);
+          - const half = review.rating % 1 === 0.5 ? 1 : 0;
+          - const arr = new Array(full);
+
+            each i in arr
+              .review__star
+                != h.icon('star')
+            if half
+              .review__star
+                != h.icon('star-half')
+
+      .review__body
+        - let readLess = review.text.split(' ').slice(0, 25).join(' ');
+        - const readMore = review.text.split(' ').slice(25).join(' ');
+        - const hasMore = readMore ? true : false;
+        - readLess = hasMore ? readLess + ' ...' : readLess;
+
+        if hasMore
+          input.toggle-view(type="checkbox" class="read__state--more" id=`toggler-${index}`)
+          p.read__wrap #{readLess}
+          p.read__target #{review.text}
+          label.read__more--toggler(for=`toggler-${index}`)
+        else
+          p #{readLess}

@@ -1,0 +1,11 @@
+include ./_stars
+
+mixin reviewForm(place)
+  form.form.review__form(action=`/review/${place._id}` method="POST")
+    p.title Add review
+    input.review__form--title(type="text" name="title" placeholder="Title" required)
+    textarea.review__form--text(name="text" cols="5" rows="5" placeholder="Description" required)
+    .flex
+      .review__form--stars
+        +stars(0, "active")
+      input.form__button(type="submit" value="Add →")

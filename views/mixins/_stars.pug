@@ -4,55 +4,55 @@ mixin stars(value = 0, mode = "active")
   - const ratingClass = mode === "disable" ? "" : "rating__group--active";
 
   .rating__group(class=ratingClass)
-    input.rating__input.rating__input--none(checked name="rating2" id="rating2-0" value="0" disabled=(disabled) type="radio")
-    label(aria-label="0 stars" class="rating__label" for="rating2-0") &nbsp;
+    input.rating__input.rating__input--none(checked name="rating" id="rating-0" value="0" disabled=(disabled) type="radio")
+    label(aria-label="0 stars" class="rating__label" for="rating-0") &nbsp;
 
-    label(aria-label="0.5 stars" class="rating__label rating__label--half" for="rating2-05")
+    label(aria-label="0.5 stars" class="rating__label rating__label--half" for="rating-05")
       svg.rating__icon.rating__icon--star
         != h.icon('star-half')
-    input.rating__input(name="rating2" id="rating2-05" value="0.5" type="radio" disabled=(disabled) checked=(value === 0.5))
+    input.rating__input(name="rating" id="rating-05" value="0.5" type="radio" disabled=(disabled) checked=(value === 0.5))
 
-    label(aria-label="1 star" class="rating__label" for="rating2-10")
+    label(aria-label="1 star" class="rating__label" for="rating-10")
       svg.rating__icon.rating__icon--star
         != h.icon('star')
-    input.rating__input(name="rating2" id="rating2-10" value="1" type="radio" disabled=(disabled) checked=(value === 1))
+    input.rating__input(name="rating" id="rating-10" value="1" type="radio" disabled=(disabled) checked=(value === 1))
 
-    label(aria-label="1.5 stars" class="rating__label rating__label--half" for="rating2-15")
+    label(aria-label="1.5 stars" class="rating__label rating__label--half" for="rating-15")
       svg.rating__icon.rating__icon--star
         != h.icon('star-half')
-    input.rating__input(name="rating2" id="rating2-15" value="1.5" type="radio" disabled=(disabled) checked=(value === 1.5))
+    input.rating__input(name="rating" id="rating-15" value="1.5" type="radio" disabled=(disabled) checked=(value === 1.5))
 
-    label(aria-label="2 stars" class="rating__label" for="rating2-20")
+    label(aria-label="2 stars" class="rating__label" for="rating-20")
       svg.rating__icon.rating__icon--star
         != h.icon('star')
-    input.rating__input(name="rating2" id="rating2-20" value="2" type="radio" disabled=(disabled) checked=(value === 2))
+    input.rating__input(name="rating" id="rating-20" value="2" type="radio" disabled=(disabled) checked=(value === 2))
 
-    label(aria-label="2.5 stars" class="rating__label rating__label--half" for="rating2-25")
+    label(aria-label="2.5 stars" class="rating__label rating__label--half" for="rating-25")
       svg.rating__icon.rating__icon--star
         != h.icon('star-half')
-    input.rating__input(name="rating2" id="rating2-25" value="2.5" type="radio" disabled=(disabled) checked=(value === 2.5))
+    input.rating__input(name="rating" id="rating-25" value="2.5" type="radio" disabled=(disabled) checked=(value === 2.5))
 
-    label(aria-label="3 stars" class="rating__label" for="rating2-30")
+    label(aria-label="3 stars" class="rating__label" for="rating-30")
       svg.rating__icon.rating__icon--star
         != h.icon('star')
-    input.rating__input(name="rating2" id="rating2-30" value="3" type="radio" disabled=(disabled) checked=(value === 3))
+    input.rating__input(name="rating" id="rating-30" value="3" type="radio" disabled=(disabled) checked=(value === 3))
 
-    label(aria-label="3.5 stars" class="rating__label rating__label--half" for="rating2-35")
+    label(aria-label="3.5 stars" class="rating__label rating__label--half" for="rating-35")
       svg.rating__icon.rating__icon--star
         != h.icon('star-half')
-    input.rating__input(name="rating2" id="rating2-35" value="3.5" type="radio" disabled=(disabled) checked=(value === 3.5))
+    input.rating__input(name="rating" id="rating-35" value="3.5" type="radio" disabled=(disabled) checked=(value === 3.5))
 
-    label(aria-label="4 stars" class="rating__label" for="rating2-40")
+    label(aria-label="4 stars" class="rating__label" for="rating-40")
       svg.rating__icon.rating__icon--star
         != h.icon('star')
-    input.rating__input(name="rating2" id="rating2-40" value="4" type="radio" disabled=(disabled) checked=(value === 4))
+    input.rating__input(name="rating" id="rating-40" value="4" type="radio" disabled=(disabled) checked=(value === 4))
 
-    label(aria-label="4.5 stars" class="rating__label rating__label--half" for="rating2-45")
+    label(aria-label="4.5 stars" class="rating__label rating__label--half" for="rating-45")
       svg.rating__icon.rating__icon--star
         != h.icon('star-half')
-    input.rating__input(name="rating2" id="rating2-45" value="4.5" type="radio" disabled=(disabled) checked=(value === 4.5))
+    input.rating__input(name="rating" id="rating-45" value="4.5" type="radio" disabled=(disabled) checked=(value === 4.5))
 
-    label(aria-label="5 stars" class="rating__label" for="rating2-50")
+    label(aria-label="5 stars" class="rating__label" for="rating-50")
       svg.rating__icon.rating__icon--star
         != h.icon('star')
-    input.rating__input(name="rating2" id="rating2-50" value="5" type="radio" disabled=(disabled) checked=(value === 5))
+    input.rating__input(name="rating" id="rating-50" value="5" type="radio" disabled=(disabled) checked=(value === 5))

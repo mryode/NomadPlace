@@ -623,7 +623,7 @@ body {
     margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat", sans-serif;
     color: #2c3e50;
     font-size: 13px; }
   .form__title {
@@ -1096,6 +1096,206 @@ h3:after {
   width: 300px; }
   .popup img {
     width: 100%; }
+
+/* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating__group on a single line */
+.rating__group {
+  display: -webkit-inline-box;
+  display: inline-flex; }
+
+/* make hover effect work properly in IE */
+.rating__icon {
+  pointer-events: none;
+  height: 40px;
+  width: 40px; }
+
+/* hide radio inputs */
+.rating__input {
+  position: absolute !important;
+  left: -9999px !important; }
+
+/* set icon padding and size */
+.rating__label {
+  cursor: pointer;
+  /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+  padding: 0 3px; }
+
+/* add padding and positioning to half star labels */
+.rating__label--half {
+  padding: 0;
+  width: 23px;
+  margin-right: -23px;
+  padding-left: 3px;
+  z-index: 2; }
+
+/* set default star color */
+.rating__icon--star {
+  fill: #ddd; }
+
+/* set color of none icon when unchecked */
+.rating__icon--none {
+  fill: #eee; }
+
+.rating__group {
+  /* if any input is checked, make its following siblings grey */ }
+  .rating__group .rating__icon--star {
+    fill: orange; }
+  .rating__group .rating__input:checked ~ .rating__label .rating__icon--star {
+    fill: #ddd; }
+  .rating__group--active {
+    /* make all stars orange on rating group hover */
+    /* make hovered input's following siblings grey on hover */
+    /* make none icon grey on rating group hover */ }
+    .rating__group--active:hover .rating__label .rating__icon--star svg,
+    .rating__group--active:hover .rating__label--half .rating__icon--star svg {
+      fill: orange; }
+    .rating__group--active .rating__input:hover ~ .rating__label .rating__icon--star svg,
+    .rating__group--active .rating__input:hover ~ .rating__label--half .rating__icon--star svg {
+      fill: #ddd; }
+    .rating__group--active:hover .rating__input--none:not(:hover)
++ .rating__label
+.rating__icon--none {
+      fill: #eee; }
+
+@media all and (max-width: 410px) {
+  .rating__icon {
+    height: 30px;
+    width: 30px; }
+  .rating__label {
+    padding: 0 1px; }
+  .rating__label--half {
+    padding: 0;
+    width: 14px;
+    margin-right: -14px;
+    padding-left: 1px;
+    z-index: 2; } }
+
+.review__form {
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  margin: 3rem;
+  padding: 2rem; }
+  .review__form p.title {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif; }
+  .review__form--title {
+    font-weight: bold; }
+  .review__form input[name="title"],
+  .review__form input[name="title"]:focus,
+  .review__form textarea,
+  .review__form textarea:focus, .review__form--stars {
+    border: none;
+    border-left: 2px solid #f5dea3;
+    outline: none; }
+  .review__form .form__button {
+    width: 40%; }
+  .review__form .flex {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between; }
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+  grid-gap: 3rem;
+  margin: 3rem 0;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-transition: height cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: height cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2); }
+  .review__meta {
+    justify-items: center;
+    background: #f5dea3;
+    align-self: stretch;
+    text-align: center;
+    padding: 3rem 0; }
+    .review__meta > * {
+      margin: 1rem;
+      line-height: 2;
+      font-size: 1.6rem; }
+    .review__meta .review__author p {
+      margin: 0; }
+    .review__meta .review__time {
+      font-size: 1.6rem; }
+    .review__meta .review__actions .delete__button {
+      background: none;
+      border: 0;
+      outline: 0;
+      position: relative; }
+    .review__meta .review__actions svg {
+      height: 20px;
+      width: 20px; }
+  .review__stars {
+    display: -webkit-box;
+    display: flex;
+    margin: 2rem 0rem 2rem 0; }
+    .review__stars .review__star {
+      height: 20px;
+      width: 20px; }
+  .review__details {
+    align-self: stretch;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    padding: 2rem 2rem 2rem 0rem; }
+    .review__details .review__title h2 {
+      margin: 0; }
+    .review__details .review__body p {
+      margin: 0; }
+    .review__details .review__body .read__state--more {
+      display: none; }
+    .review__details .review__body .read__wrap {
+      opacity: 1;
+      font-size: inherit;
+      max-height: 999em;
+      -webkit-transition: 1s ease-in-out;
+      transition: 1s ease-in-out; }
+    .review__details .review__body .read__target {
+      opacity: 0;
+      max-height: 0;
+      font-size: 0;
+      -webkit-transition: 1s ease-in-out;
+      transition: 1s ease-in-out; }
+    .review__details .review__body .read__state--more:checked ~ .read__target {
+      opacity: 1;
+      font-size: inherit;
+      max-height: 999em; }
+    .review__details .review__body .read__state--more:checked ~ .read__wrap {
+      opacity: 0;
+      max-height: 0;
+      font-size: 0; }
+    .review__details .review__body .read__state--more ~ .read__more--toggler:before {
+      content: "Show more"; }
+    .review__details .review__body .read__state--more:checked ~ .read__more--toggler:before {
+      content: "Show less"; }
+    .review__details .review__body .read__more--toggler {
+      text-align: right;
+      color: #f5dea3;
+      display: block;
+      cursor: pointer; }
+      .review__details .review__body .read__more--toggler:after {
+        content: "→";
+        margin-left: -10px;
+        opacity: 0;
+        -webkit-transition: margin 0.3s, opacity 0.3s;
+        transition: margin 0.3s, opacity 0.3s; }
+      .review__details .review__body .read__more--toggler:hover:after {
+        margin-left: 5px;
+        opacity: 1; }
+    .review__details .review__time {
+      margin: 1rem 0 2rem 0rem;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      color: #303030; }
 
 
 /*# sourceMappingURL=App.bundle.css.map*/
