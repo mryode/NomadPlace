@@ -9,7 +9,18 @@
 - Bundled .js files
 - Bundled .scss files
 
+[:white_check_mark:] Password security
+
+- Stored using `passport` - AES256 hashing with salt
+
 [ ] Prevent CSRF/XSS/DOS
+
+- DOS - rateLimiter
+- XSS :
+  -- Helmets
+  -- Sanitizers
+- CSRF -
+  -- csruf
 
 [ ] Sanitize FORM submissions
 
