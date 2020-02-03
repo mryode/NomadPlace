@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "node ./start.js",
     "nodemon": "nodemon ./start.js --ignore public/scss/",
     "webpack": "webpack -w --display-max-modules 0",
     "load": "node ./data/sampleData.js",
