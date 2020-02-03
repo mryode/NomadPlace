@@ -329,3 +329,22 @@ Using virtual field connect between Place id and reviews.
 [:white_check_mark:] Create Add Reviews section in `place` page
 
 [:white_check_mark:] Add reviews count to `_placeCard`
+
+## Step 13 - Security
+
+[:white_check_mark:] HTTP Headers Protection - Helmet
+
+- X-Powered-By: Hide server application data
+- X-DNS-Prefetch-Control: Don't allow DNS resolve before accessing a link
+- X-Download-Options: Prevent IE from executing downloads
+- X-Content-Type-Options: prevent browser from trying to guess MIME type
+- X-XSS-Protection: try to prevent XSS attempts 
+- Content-Security-Police: Whitelisting code sources
+
+[] XSS Protection
+
+- cookie.httpOnly - Cookies can be sent only over http and not using JS.
+
+[] DoS
+
+- Rate Limiter on Website, API and external services

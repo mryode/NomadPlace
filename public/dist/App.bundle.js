@@ -12918,6 +12918,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var flashClose = Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$$"])('.flash__close');
+flashClose.on('click', function () {
+  this.parentElement.remove();
+});
 Object(_modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#address'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lat'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lng'));
 Object(_modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('.search'));
 Object(_modules_map__WEBPACK_IMPORTED_MODULE_4__["default"])('map');
