@@ -15,8 +15,6 @@ const router = express.Router();
 router.get('/', placeController.getPlaces);
 
 // Add Place
-// TODO Check if user logged in
-// TODO Create form validator
 router.get('/add', placeController.addPlace);
 router.post(
   '/add',
@@ -31,9 +29,6 @@ router.post(
 router.get('/places', catchErrors(placeController.getPlaces));
 
 // Users
-// TODO validate forms
-// TODO check if logged in/out before doing things (no logout if not logged in)
-// Session endpoints
 router.get('/login', userController.loginForm);
 router.post(
   '/login',
