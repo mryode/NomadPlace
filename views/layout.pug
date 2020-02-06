@@ -5,6 +5,7 @@ html
     link(rel="shortcut icon" type="image/png" href="/images/icons/worldwide.png")
     link(rel='stylesheet' href='/dist/App.bundle.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="csrf-token" content=csrfToken)
 
   body
     header.top
@@ -47,7 +48,7 @@ html
                   != h.icon(category)
                 p.flash__content
                   != message
-                button.flash__close(onClick="this.parentElement.remove()") &times;
+                button.flash__close &times;
 
     .content
       block content

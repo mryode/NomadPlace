@@ -12671,10 +12671,16 @@ function ajaxHeart(e) {
   var _this = this;
 
   e.preventDefault();
-  console.log('e', e);
-  console.log('this', this);
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(e.target.action).then(function (res) {
-    var isHearted = _this.heart.classList.toggle('heart__button--hearted');
+  var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  var req = {
+    method: 'POST',
+    url: this.action,
+    headers: {
+      'CSRF-Token': csrfToken
+    }
+  };
+  axios__WEBPACK_IMPORTED_MODULE_0___default()(req).then(function (res) {
+    _this.heart.classList.toggle('heart__button--hearted');
 
     Object(_bling__WEBPACK_IMPORTED_MODULE_1__["$"])('.heart-count').textContent = res.data.hearts.length; // NOTE optional
 
@@ -12918,6 +12924,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var flashClose = Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$$"])('.flash__close');
+flashClose.on('click', function () {
+  this.parentElement.remove();
+});
 Object(_modules_addressAutoComplete__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#address'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lat'), Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('#lng'));
 Object(_modules_searchAutoComplete__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_modules_bling__WEBPACK_IMPORTED_MODULE_0__["$"])('.search'));
 Object(_modules_map__WEBPACK_IMPORTED_MODULE_4__["default"])('map');

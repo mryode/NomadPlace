@@ -4,22 +4,30 @@ exports.catchErrors = fn =>
     return fn(req, res, next).catch(next);
   };
 
-/*
-  Not Found Error Handler
+exports.csrfError = (err, req, res, next) => {
+  if (err.code === 'EBADCSRFTOKEN') {
+    console.log('here', err);
+    const error = new Error('Invalid CSRF Token');
+    error.status = 403;
+  }
+  return next(err);
+};
 
-  If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
-*/
 exports.notFound = (req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 };
 
-/*
-  MongoDB Validation Error Handler
+exports.formValidationErrors = (err, req, res, next) => {
+  console.log('err.message', err.message);
+  if (!err.error_type) return next(err);
 
-  Detect if there are mongodb validation errors that we can nicely show via flash messages
-*/
+  err.errors.map(error => req.flash(error.type, error.message));
+  // TODO repopulate the form
+  res.redirect('back');
+};
+
 exports.flashValidationErrors = (err, req, res, next) => {
   if (!err.errors) return next(err);
 
@@ -29,11 +37,6 @@ exports.flashValidationErrors = (err, req, res, next) => {
   res.redirect('back');
 };
 
-/*
-  Development Error Handler
-
-  In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
-*/
 exports.developmentErrors = (err, req, res, next) => {
   console.error(err);
 
@@ -56,11 +59,6 @@ exports.developmentErrors = (err, req, res, next) => {
   });
 };
 
-/*
-  Production Error Handler
-
-  No stacktraces are leaked to user
-*/
 exports.productionErrors = (err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {

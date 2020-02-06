@@ -18,7 +18,6 @@ exports.savePlaceInDB = async (req, res) => {
   req.body.author = req.user._id;
 
   const place = await Place.create(req.body);
-  // TODO Reflective XSS warning sanitize place name
   req.flash('success', `${place.name} was created!`);
 
   // TODO redirect to the place page

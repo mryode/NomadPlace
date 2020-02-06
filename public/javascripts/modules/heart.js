@@ -4,13 +4,21 @@ import { $ } from './bling';
 function ajaxHeart(e) {
   e.preventDefault();
 
-  console.log('e', e);
-  console.log('this', this);
+  const csrfToken = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute('content');
 
-  axios
-    .post(e.target.action)
+  const req = {
+    method: 'POST',
+    url: this.action,
+    headers: {
+      'CSRF-Token': csrfToken,
+    },
+  };
+
+  axios(req)
     .then(res => {
-      const isHearted = this.heart.classList.toggle('heart__button--hearted');
+      this.heart.classList.toggle('heart__button--hearted');
       $('.heart-count').textContent = res.data.hearts.length;
 
       // NOTE optional

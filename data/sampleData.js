@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const Place = require('../models/Place');
 const User = require('../models/User');
+const Review = require('../models/Review');
 
 const places = JSON.parse(
   fs.readFileSync(`${__dirname}/json/places.json`, 'utf-8')
@@ -11,11 +12,15 @@ const places = JSON.parse(
 const users = JSON.parse(
   fs.readFileSync(`${__dirname}/json/users.json`, 'utf-8')
 );
+const reviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/json/reviews.json`, 'utf-8')
+);
 
 async function deleteData() {
   console.log('Deleting Data...');
   await Place.deleteMany();
   await User.deleteMany();
+  await Review.deleteMany();
   console.log('Data Deleted. To load sample data, run\n\n\t npm run load\n\n');
   process.exit();
 }
@@ -25,6 +30,7 @@ async function loadData() {
   try {
     await Place.insertMany(places);
     await User.insertMany(users);
+    await Review.insertMany(reviews);
     console.log('Done!');
     process.exit();
   } catch (e) {

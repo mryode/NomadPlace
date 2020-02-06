@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "5e3c3bdaf9e6cf61d881d5e8",
+    "title": "sophisticated coworking space",
+    "text": "Sarona Space Kefar Sava The Coworking space, Sarona space is a unique concept. A \"boutique\" space within a friendly and dynamic community. Able to leverage its large and international mentor network, Sarona space provides constant support to the startups during all stages of their evolution, dramatically reducing the risk of failure. Sarona Space is part of the European fund Sarona ventures capital, its goal is to help great startups reaching their top level and turning to international. With a very start-up conscious prices and the ability to leverage its large and international mentor network",
+    "rating": 4.5,
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "place": "5e19fd814b3f1b39d80e2faf",
+    "created": "1581005786636"
+  },
+  {
+    "_id": "5e3c3efadb8ce821c4ac92b0",
+    "title": "Great Place",
+    "text": "Feels like home :)",
+    "rating": 4,
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "place": "5e1a1f6ef03d2a4f5cdc360d",
+    "created": "1581006586968"
+  },
+  {
+    "_id": "5e3c3f6fdb8ce821c4ac92b1",
+    "title": "Bit empty",
+    "text": "Beautiful place but not full with people",
+    "rating": 3.5,
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "place": "5e1a1b98f03d2a4f5cdc360a",
+    "created": "1581006703305"
+  },
+  {
+    "_id": "5e3c403889dd35593c94b863",
+    "title": "Merkspace do not return deposits",
+    "text": "After closing Merkspace Kiryat Atidim on Nov 2019, they did not return deposits. Beware!",
+    "rating": 1,
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "place": "5e19fecaf03d2a4f5cdc3607",
+    "created": "1581006904475"
+  },
+  {
+    "_id": "5e3c440c826f27539c9e24ad",
+    "title": "Love this place",
+    "text": "Nice people with awesome location!",
+    "rating": 5,
+    "author": "5e19fa7e252cc25cfcd36db3",
+    "place": "5e19fd814b3f1b39d80e2faf",
+    "created": "1581007884275"
+  },
+  {
+    "_id": "5e3c443c826f27539c9e24ae",
+    "title": "Best combination of offices and mentoring service!",
+    "text": ".",
+    "rating": 5,
+    "author": "5e19fa7e252cc25cfcd36db3",
+    "place": "5e19fecaf03d2a4f5cdc3607",
+    "created": "1581007932815"
+  },
+  {
+    "_id": "5e3c3a83f9e6cf61d881d5e7",
+    "title": "Great Coworking near Busy Tech Street",
+    "text": "Merkspace is a very nice/hip looking coworking spot. It is located one street away from a bustling street with lots of food options and right next to a large 'fashion' mall. Merkspace has a few different offices - when I went to a different one looking for a 'flex desk', they sent me to this one. Wifi was great and reliable. I was really looking for the 24/7 access since I was working with East Coast hours and a card and access code to the front door made that easy. There are usually a lot of people hanging around the main area of the coworking space. You'll hear both English and Hebrew and sometimes it might get a bit loud in the main area, but never for too long. All the usual amenities (coffee, tea, water, microwave, fridge, etc) are available and accessible. Main flaw: Since I don't have an Israeli bank account, the manager said that they can't do a deposit-type account, rather they have to simply charge me more for the membership. Then they ended up overcharging my credit card (refunded once I brought it to their attention). Not very cool. Once I got past that, the rest of the experience was good. Note for the non-Hebrew speakers: 'Begin' is the name of street, not 'start'.",
+    "rating": 5,
+    "author": "5e19f9f9252cc25cfcd36db1",
+    "place": "5e19fecaf03d2a4f5cdc3607",
+    "created": "1581005443061"
+  },
+  {
+    "_id": "5e3c3ff389dd35593c94b862",
+    "title": "PsychoDrama Workshop",
+    "text": "I did an experiential psychodrama workshop. The manager of the place organized the place wonderfully. The venue is suitable for a workshop with up to 10 participants. The chairs are colorful, the carpets give a warm, intimate and homely atmosphere to the place. The hospitality includes tea, coffee, a variety of cookies and delicious, high-quality refreshments. The atmosphere is pleasant and relaxed",
+    "rating": 4.5,
+    "author": "5e19fa2f252cc25cfcd36db2",
+    "place": "5e19ffcdf03d2a4f5cdc3608",
+    "created": "1581006835437"
+  }
+]

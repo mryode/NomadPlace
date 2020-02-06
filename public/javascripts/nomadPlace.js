@@ -6,6 +6,11 @@ import makeMap from './modules/map';
 
 import '../scss/style.scss';
 
+const flashClose = $$('.flash__close');
+flashClose.on('click', function() {
+  this.parentElement.remove();
+});
+
 addressAutoComplete($('#address'), $('#lat'), $('#lng'));
 searchAutoComplete($('.search'));
 makeMap('map');
