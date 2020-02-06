@@ -63,16 +63,6 @@ exports.validationRules = method => {
           .escape()
           .trim()
           .notEmpty(),
-        body('address', 'You must supply a address!')
-          .escape()
-          .trim()
-          .notEmpty(),
-        body('lat', 'You must supply a lat!')
-          .toFloat()
-          .notEmpty(),
-        body('lng', 'You must supply a lng!')
-          .toFloat()
-          .notEmpty(),
       ];
     case 'review':
       return [
@@ -90,6 +80,7 @@ exports.validationRules = method => {
 };
 
 exports.validate = (req, res, next) => {
+  console.log('req.body', req.body);
   const errors = validationResult(req);
   if (errors.isEmpty()) {
     return next();

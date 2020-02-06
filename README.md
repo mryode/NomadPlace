@@ -1,5 +1,7 @@
 # NomadPlace 👨‍💻
 
+Visit [NomadPlace](https://nomadplace.herokuapp.com/)
+
 ## Find place to work as a Nomad!
 
 This app made for people around the globe who want to travel and keep working remotely. :airplane:

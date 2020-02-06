@@ -11,6 +11,11 @@ const validator = require('../handlers/validator');
 
 const router = express.Router();
 
+const print = (req, res, next) => {
+  console.log('req.body', req.body);
+  next();
+};
+
 // Home Page
 router.get('/', placeController.getPlaces);
 
@@ -18,10 +23,10 @@ router.get('/', placeController.getPlaces);
 router.get('/add', placeController.addPlace);
 router.post(
   '/add',
-  validator.validationRules('edit'),
-  validator.validate,
   placeController.uploadImage,
   catchErrors(placeController.resizeImage),
+  validator.validationRules('edit'),
+  validator.validate,
   catchErrors(placeController.savePlaceInDB)
 );
 
@@ -65,10 +70,10 @@ router.post(
 router.get('/places/:id/edit', placeController.editPlace);
 router.post(
   '/add/:id',
-  validator.validationRules('edit'),
-  validator.validate,
   placeController.uploadImage,
   catchErrors(placeController.resizeImage),
+  validator.validationRules('edit'),
+  validator.validate,
   catchErrors(placeController.updatePlace)
 );
 

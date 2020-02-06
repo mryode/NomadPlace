@@ -15,6 +15,7 @@ exports.addPlace = (req, res) => {
 };
 
 exports.savePlaceInDB = async (req, res) => {
+  console.log('req.body', req.body);
   req.body.author = req.user._id;
 
   const place = await Place.create(req.body);

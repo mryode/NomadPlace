@@ -6,7 +6,6 @@ exports.catchErrors = fn =>
 
 exports.csrfError = (err, req, res, next) => {
   if (err.code === 'EBADCSRFTOKEN') {
-    console.log('here', err);
     const error = new Error('Invalid CSRF Token');
     error.status = 403;
   }
@@ -20,7 +19,6 @@ exports.notFound = (req, res, next) => {
 };
 
 exports.formValidationErrors = (err, req, res, next) => {
-  console.log('err.message', err.message);
   if (!err.error_type) return next(err);
 
   err.errors.map(error => req.flash(error.type, error.message));
