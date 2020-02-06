@@ -600,7 +600,7 @@ body {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     color: #2c3e50;
-    font-size: 13px; }
+    font-size: 1.5rem; }
   .form__title {
     font-size: 15px;
     text-transform: uppercase;
@@ -1195,7 +1195,8 @@ h3:after {
       line-height: 2;
       font-size: 1.6rem; }
     .review__meta .review__author p {
-      margin: 0; }
+      margin: 0;
+      word-break: break-word; }
     .review__meta .review__time {
       font-size: 1.6rem; }
     .review__meta .review__actions .delete__button {

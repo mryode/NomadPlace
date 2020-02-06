@@ -1,5 +1,7 @@
 mixin placeForm(place = {})
-  form.card.form(action=`/add/${place._id || ''}`, method="POST" enctype="multipart/form-data")
+  - const action = place._id ? `/${place._id}` : '';
+  form.card.form(action=`/add${action}?_csrf=${csrfToken}`, method="POST" enctype="multipart/form-data")
+    //- input(type='hidden' name='_csrf', value=csrfToken)
 
     label(for="name") Name
     input(type="text" name="name", value=(place.name))

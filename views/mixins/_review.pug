@@ -12,6 +12,7 @@ mixin review(review, index)
       if user && review.author._id.equals(user._id)
         .review__actions
           form(action=`../api/v1/reviews/${review._id}/delete`, method="POST")
+            input(type='hidden' name='_csrf', value=csrfToken)
             button.delete__button(type="submit")
               != h.icon('trash')
 

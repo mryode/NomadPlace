@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-const RateLimit = require('express-rate-limit');
 const flash = require('connect-flash');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -8,12 +7,17 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
+const csrf = require('csurf');
 
 const helpers = require('./utils/helpers');
 const errorHandler = require('./handlers/errorHandler');
 const helmetConfig = require('./handlers/helmet');
+const rateLimiter = require('./handlers/limiters');
+const auth = require('./handlers/auth');
+const xss = require('./handlers/xss');
 
 const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -32,12 +36,6 @@ app.use(cookieParser());
 
 helmetConfig(app);
 
-app.use(
-  new RateLimit({
-    max: 30,
-    duration: 60000, // 1m in miliseconds
-  })
-);
 // SessionID saved inside the cookie itself
 // Session data saved on MongoStore
 app.use(
@@ -49,7 +47,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: true,
+      maxAge: 60000 * 60 * 5, // 5hr
+      // secure: true, // TODO set true on HTTPS
       sameSite: true,
     },
   })
@@ -63,6 +62,8 @@ app.use(passport.session());
 
 app.use(flash());
 
+app.use(auth.authenticateRequest);
+
 // Pass variables to the templates and requests
 app.use((req, res, next) => {
   res.locals.h = helpers;
@@ -73,21 +74,27 @@ app.use((req, res, next) => {
   next(); // After adding - continue...
 });
 
-app.use('/', indexRouter);
+app.use(csrf({ cookie: false }));
+app.use((req, res, next) => {
+  if (req.session) {
+    res.locals.csrfToken = req.csrfToken();
+  }
+  next();
+});
+
+xss.sanitizeBody(app);
+
+app.use('/', rateLimiter.pages, indexRouter);
+app.use('/api/', rateLimiter.api, apiRouter);
 
 // Error handlers
 app.use(errorHandler.notFound);
-
-// Check for any validation errors when submitting a form
+app.use(errorHandler.csrfError);
+app.use(errorHandler.formValidationErrors);
 app.use(errorHandler.flashValidationErrors);
-
-// Otherwise this was a really bad error we didn't expect! Shoot eh
 if (app.get('env') === 'development') {
-  /* Development Error Handler - Prints stack trace */
   app.use(errorHandler.developmentErrors);
 }
-
-// production error handler
 app.use(errorHandler.productionErrors);
 
 module.exports = app;

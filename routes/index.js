@@ -6,6 +6,8 @@ const authController = require('../controllers/authController');
 const reviewController = require('../controllers/reviewController');
 
 const { catchErrors } = require('../handlers/errorHandler');
+const rateLimiter = require('../handlers/limiters');
+const validator = require('../handlers/validator');
 
 const router = express.Router();
 
@@ -18,6 +20,8 @@ router.get('/', placeController.getPlaces);
 router.get('/add', placeController.addPlace);
 router.post(
   '/add',
+  validator.validationRules('edit'),
+  validator.validate,
   placeController.uploadImage,
   catchErrors(placeController.resizeImage),
   catchErrors(placeController.savePlaceInDB)
@@ -31,17 +35,30 @@ router.get('/places', catchErrors(placeController.getPlaces));
 // TODO check if logged in/out before doing things (no logout if not logged in)
 // Session endpoints
 router.get('/login', userController.loginForm);
-router.post('/login', authController.login);
+router.post(
+  '/login',
+  rateLimiter.email,
+  validator.validationRules('login'),
+  validator.validate,
+  authController.login
+);
 router.get('/register', userController.registerForm);
 router.post(
   '/register',
+  validator.validationRules('register'),
+  validator.validate,
   catchErrors(userController.register),
   authController.login
 );
 router.get('/logout', authController.logout);
 // Account endpoints
-router.get('/account', userController.accountPage);
-router.post('/account', catchErrors(userController.updateAccount));
+router.get('/account/info', userController.accountPage);
+router.post(
+  '/account/info',
+  validator.validationRules('account'),
+  validator.validate,
+  catchErrors(userController.updateAccount)
+);
 router.post('/account/forgot', catchErrors(authController.forgot));
 router.get('/account/reset/:token', authController.reset);
 router.post(
@@ -53,6 +70,8 @@ router.post(
 router.get('/places/:id/edit', placeController.editPlace);
 router.post(
   '/add/:id',
+  validator.validationRules('edit'),
+  validator.validate,
   placeController.uploadImage,
   catchErrors(placeController.resizeImage),
   catchErrors(placeController.updatePlace)
@@ -71,20 +90,11 @@ router.get('/hearts', catchErrors(placeController.getHeartsPage));
 router.get('/map', placeController.mapPage);
 
 // Reviews
-router.post('/review/:id', catchErrors(reviewController.addReview));
-
-/**
- * API
- */
-router.get('/api/v1/search', catchErrors(placeController.searchPlaces));
 router.post(
-  '/api/v1/places/:id/heart',
-  catchErrors(placeController.heartPlace)
-);
-router.get('/api/v1/places', catchErrors(placeController.mapPlaces));
-router.post(
-  '/api/v1/reviews/:id/delete',
-  catchErrors(reviewController.deleteReview)
+  '/review/:id',
+  validator.validationRules('review'),
+  validator.validate,
+  catchErrors(reviewController.addReview)
 );
 
 module.exports = router;

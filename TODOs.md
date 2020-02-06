@@ -9,23 +9,6 @@
 - Bundled .js files
 - Bundled .scss files
 
-[:white_check_mark:] Password security
-
-- Stored using `passport` - AES256 hashing with salt
-
-[ ] Prevent CSRF/XSS/DOS
-
-- DOS - rateLimiter
-- XSS :
-  -- Helmets
-  -- Sanitizers
-- CSRF -
-  -- csruf
-
-[ ] Sanitize FORM submissions
-
-[ ] Create access control (isLoggedIn / attach permissions code to user)
-
 [ ] Mobile support
 
 ### Step 1 - Environment Setup
@@ -332,19 +315,36 @@ Using virtual field connect between Place id and reviews.
 
 ## Step 13 - Security
 
+[:white_check_mark:] Access Permissions
+
+- Check if user authenticated before access certain pages.
+
+[:white_check_mark:] Password security
+
+- Stored using `passport` - AES256 hashing with salt
+
 [:white_check_mark:] HTTP Headers Protection - Helmet
 
 - X-Powered-By: Hide server application data
 - X-DNS-Prefetch-Control: Don't allow DNS resolve before accessing a link
 - X-Download-Options: Prevent IE from executing downloads
 - X-Content-Type-Options: prevent browser from trying to guess MIME type
-- X-XSS-Protection: try to prevent XSS attempts 
+- X-XSS-Protection: try to prevent XSS attempts
 - Content-Security-Police: Whitelisting code sources
 
-[] XSS Protection
+[:white_check_mark:] XSS Protection
 
 - cookie.httpOnly - Cookies can be sent only over http and not using JS.
+- Sanitization and escaping
+- Type Validation
 
-[] DoS
+[:white_check_mark:] CSRF Protection
+
+- Verify CSRF token of submitted forms
+
+[:white_check_mark:] DoS & Brute Forcing
 
 - Rate Limiter on Website, API and external services
+  -- Web pages - 20 per minute
+  -- API calls - 50 per minute
+  -- Email login - 5 per hour
