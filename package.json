@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run nodemon\" \"npm run webpack\" --names \"SERVER,WEBPACK\"  -c \"bgBlue.bold,bgGreen.bold\" --prefix name"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
